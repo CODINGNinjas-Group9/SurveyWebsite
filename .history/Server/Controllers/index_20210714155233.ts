@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
+import Survey from "../Models/Survey";
 
 // Display Page Functions
 
@@ -23,6 +24,23 @@ export function DisplayProjectsPage(
   res: Response,
   next: NextFunction
 ): void {
+  let newSurvey = new Survey({
+    title: "test Survey",
+    creator: "Hassan",
+    questions: {
+      q1: "testQ1",
+      q2: "testQ2",
+      q3: "testQ3",
+      q4: "testQ4",
+      q5: "testQ7",
+    },
+  });
+  Survey.create(newSurvey, (err) => {
+    if (err) {
+      console.log(err);
+      return res.end(err);
+    }
+  });
   res.render("index", { title: "Our Projects", page: "projects" });
 }
 
