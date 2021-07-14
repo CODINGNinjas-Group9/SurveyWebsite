@@ -1,0 +1,50 @@
+<div class="row justify-content-lg-center g-3">
+    <h1><%= title %> Clothing</h1>
+
+    <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-name-default">Name</span>
+            <input id="name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="Clothing Name"
+            name="name" value="<%= clothing.name %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-brand-default">Brand</span>
+            <input id="brand" type="text" class="form-control" placeholder="Brand" aria-label="Brand" aria-describedby="Clothing Brand"
+            name="brand" value="<%= clothing.brand %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-category-default">Category</span>
+            <input id="category" type="text" class="form-control" placeholder="Category" aria-label="Category" aria-describedby="Clothing Category"
+            name="category" value="<%= clothing.category %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-colour-default">Colour</span>
+            <input id="colour" type="text" class="form-control" placeholder="Colour" aria-label="Colour" aria-describedby="Clothing Colour"
+            name="colour" value="<%= clothing.colour %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-size-default">Size</span>
+            <input id="size" type="text" class="form-control" placeholder="Size" aria-label="Size" aria-describedby="Clothing Size"
+            name="size" value="<%= clothing.size %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-price-default">Price</span>
+            <input id="price" type="text" class="form-control" placeholder="Price" aria-label="Price" aria-describedby="Clothing Price"
+            name="price" value="<%= clothing.price %>" required>
+        </div>
+
+        <% if(title == "Edit") { %>
+            <button id="editButton" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
+        <% } else { %>
+            <button id="addButton" class="btn btn-primary"><i class="fas fa-plus fa-lg"></i> Add</button>
+        <% } %>
+
+        <a href="/clothing-list" id="cancelButton" type="button" class="btn btn-warning"><i class="fas fa-undo fa-lg"></i> Cancel</a>
+    </form>
+</div>
