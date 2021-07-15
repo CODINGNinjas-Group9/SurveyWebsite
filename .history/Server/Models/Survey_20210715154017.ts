@@ -5,7 +5,6 @@ const SurveySchema = new Schema(
   {
     title: String,
     creator: String,
-    validDate: String,
     description: String,
     questions: {
       q1: {
