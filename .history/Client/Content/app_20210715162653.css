@@ -1,6 +1,9 @@
 /* your custom css goes here */
 h1{
-  
+  background-color: rgb(58, 112, 94);
+  width: 400px;
+  border: 5px solid rgb(50, 102, 85);
+  border-radius: 7px;
   padding: 50px;
   margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -8,8 +11,16 @@ h1{
 }
 
 h2 {
-  
+  background-color: rgb(58, 112, 94);
+  width: 400px;
+<<<<<<< Updated upstream
+  border: 5px solid rgb(50, 102, 85);
+  border-radius: 7px;
+  padding: 50px;
+  margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
+=======
+>>>>>>> Stashed changes
   
   
   padding-top: 50px;
@@ -18,12 +29,26 @@ h2 {
   padding-left: 80px;
  
   
-  
+  font-family: Arial, Helvetica, sans-serif;
 }
 h3 {
-  
+  background-color: rgb(58, 112, 94);
+  width: 400px;
+<<<<<<< Updated upstream
+  border: 5px solid rgb(50, 102, 85);
+  border-radius: 7px;
   padding: 50px;
   margin: 20px;
+=======
+  
+  
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+ 
+  
+>>>>>>> Stashed changes
   font-family: Arial, Helvetica, sans-serif;
   
 }

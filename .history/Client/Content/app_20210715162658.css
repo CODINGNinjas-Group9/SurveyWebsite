@@ -1,6 +1,9 @@
 /* your custom css goes here */
 h1{
-  
+  background-color: rgb(58, 112, 94);
+  width: 400px;
+  border: 5px solid rgb(50, 102, 85);
+  border-radius: 7px;
   padding: 50px;
   margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
@@ -8,7 +11,12 @@ h1{
 }
 
 h2 {
-  
+  background-color: rgb(58, 112, 94);
+  width: 400px;
+  border: 5px solid rgb(50, 102, 85);
+  border-radius: 7px;
+  padding: 50px;
+  margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
   
   
@@ -18,10 +26,13 @@ h2 {
   padding-left: 80px;
  
   
-  
+  font-family: Arial, Helvetica, sans-serif;
 }
 h3 {
-  
+  background-color: rgb(58, 112, 94);
+  width: 400px;
+  border: 5px solid rgb(50, 102, 85);
+  border-radius: 7px;
   padding: 50px;
   margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
