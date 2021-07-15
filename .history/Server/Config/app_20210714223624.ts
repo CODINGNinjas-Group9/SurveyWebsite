@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, "../../node_modules")));
 
 // perform routing
 app.use("/", indexRouter);
-app.use("/survey-list", surveyListRouter); // create a separate "area" of our web application
+app.use("/clothing-list", surveyListRouter); // create a separate "area" of our web application
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

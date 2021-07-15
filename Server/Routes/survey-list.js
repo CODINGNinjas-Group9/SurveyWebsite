@@ -6,8 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 exports.default = router;
-const clothing_1 = require("../Controllers/clothing");
-router.get('/', clothing_1.DisplayClothingListPage);
-router.get('/edit/:id', clothing_1.DisplayEditPage);
-router.get('/edit', clothing_1.DisplayAddPage);
-//# sourceMappingURL=clothing-list.js.map
+const surveys_1 = require("../Controllers/surveys");
+router.get("/", surveys_1.DisplaySurveyListPage);
+router.get("/edit/:id", surveys_1.DisplayEditPage);
+router.get("/edit", surveys_1.DisplayAddPage);
+router.get("/:id", surveys_1.DisplaySurveyPage);
+//# sourceMappingURL=survey-list.js.map
