@@ -14,8 +14,8 @@ const SurveyResponseSchema = new Schema({
     q4ResNo: Number,
     q5ResNo: Number,
 }, {
-    collection: "response",
+    collection: "sresponse",
 });
-const Model = mongoose_1.default.model("Response", SurveyResponseSchema);
+const Model = mongoose_1.default.model("SurveyResponse", SurveyResponseSchema);
 exports.default = Model;
 //# sourceMappingURL=surveyresponse.js.map

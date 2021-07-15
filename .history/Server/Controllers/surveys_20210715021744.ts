@@ -86,12 +86,12 @@ export function ProcessSurveyPage(
   let id = req.params.id;
   let newSurveyResponse = new SurveyResponse({
     surveyId: id,
-    candidateName: req.body.candidateName,
-    q1ResNo: req.body.q1ResNo,
-    q2ResNo: req.body.q2ResNo,
-    q3ResNo: req.body.q3ResNo,
-    q4ResNo: req.body.q4ResNo,
-    q5ResNo: req.body.q5ResNo,
+    candidateName: String,
+    q1ResNo: Number,
+    q2ResNo: Number,
+    q3ResNo: Number,
+    q4ResNo: Number,
+    q5ResNo: Number,
   });
   SurveyResponse.create(newSurveyResponse, (err) => {
     if (err) {

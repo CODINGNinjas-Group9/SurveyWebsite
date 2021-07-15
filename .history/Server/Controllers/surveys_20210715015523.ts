@@ -2,7 +2,6 @@ import express, { Request, Response, NextFunction } from "express";
 
 // Clothing Model
 import Survey from "../Models/Survey";
-import SurveyResponse from "../Models/surveyresponse";
 
 // display page functions
 export function DisplaySurveyListPage(
@@ -84,20 +83,17 @@ export function ProcessSurveyPage(
   next: NextFunction
 ): void {
   let id = req.params.id;
-  let newSurveyResponse = new SurveyResponse({
-    surveyId: id,
-    candidateName: req.body.candidateName,
-    q1ResNo: req.body.q1ResNo,
-    q2ResNo: req.body.q2ResNo,
-    q3ResNo: req.body.q3ResNo,
-    q4ResNo: req.body.q4ResNo,
-    q5ResNo: req.body.q5ResNo,
-  });
-  SurveyResponse.create(newSurveyResponse, (err) => {
+  Survey.findById(id, {}, {}, (err, survey) => {
     if (err) {
-      console.log(err);
-      return res.end(err);
+      console.error(err);
+      res.end(err);
     }
+
+    // show the survey page
+    res.render("index", {
+      title: "survey.title",
+      page: "survey",
+      survey: survey,
+    });
   });
-  res.redirect("/");
 }

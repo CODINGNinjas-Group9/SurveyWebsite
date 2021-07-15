@@ -3,8 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplaySurveyPage = exports.DisplayAddPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
+exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.DisplayAddPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
+const surveyresponse_1 = __importDefault(require("../Models/surveyresponse"));
 function DisplaySurveyListPage(req, res, next) {
     Survey_1.default.find(function (err, surveyCollection) {
         if (err) {
@@ -53,4 +54,24 @@ function DisplaySurveyPage(req, res, next) {
     });
 }
 exports.DisplaySurveyPage = DisplaySurveyPage;
+function ProcessSurveyPage(req, res, next) {
+    let id = req.params.id;
+    let newSurveyResponse = new surveyresponse_1.default({
+        surveyId: id,
+        candidateName: req.body.candidateName,
+        q1ResNo: req.body.q1ResNo,
+        q2ResNo: req.body.q2ResNo,
+        q3ResNo: req.body.q3ResNo,
+        q4ResNo: req.body.q4ResNo,
+        q5ResNo: req.body.q5ResNo,
+    });
+    surveyresponse_1.default.create(newSurveyResponse, (err) => {
+        if (err) {
+            console.log(err);
+            return res.end(err);
+        }
+    });
+    res.redirect("/");
+}
+exports.ProcessSurveyPage = ProcessSurveyPage;
 //# sourceMappingURL=surveys.js.map
