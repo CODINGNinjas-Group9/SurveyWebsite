@@ -8,6 +8,7 @@ const Schema = mongoose_1.default.Schema;
 const SurveySchema = new Schema({
     title: String,
     creator: String,
+    validDate: String,
     questions: {
         q1: {
             questionNo: {

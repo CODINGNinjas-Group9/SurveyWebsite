@@ -15,8 +15,9 @@ function DisplayCreateSurveysPage(req, res, next) {
 exports.DisplayCreateSurveysPage = DisplayCreateSurveysPage;
 function ProcessCreateSurveysPage(req, res, next) {
     let newSurvey = new Survey_1.default({
-        title: "test Survey",
-        creator: "M.Hassan",
+        title: req.body.surveytitle,
+        validDate: req.body.validity,
+        creator: "Group-9",
         questions: {
             q1: { questionText: req.body.q1 },
             q2: { questionText: req.body.q2 },

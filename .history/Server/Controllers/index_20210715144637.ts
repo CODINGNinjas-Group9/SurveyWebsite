@@ -27,7 +27,7 @@ export function ProcessCreateSurveysPage(
   let newSurvey = new Survey({
     title: req.body.surveytitle,
     validDate: req.body.validity,
-    creator: "Group-9",
+    creator: "M.Hassan",
     questions: {
       q1: { questionText: req.body.q1 },
       q2: { questionText: req.body.q2 },
