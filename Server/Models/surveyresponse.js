@@ -5,13 +5,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const Schema = mongoose_1.default.Schema;
-const ContactSchema = new Schema({
-    FullName: String,
-    EmailAddress: String,
-    ContactNumber: String
+const SurveyResponseSchema = new Schema({
+    surveyId: String,
+    candidateName: String,
+    q1ResNo: Number,
+    q2ResNo: Number,
+    q3ResNo: Number,
+    q4ResNo: Number,
+    q5ResNo: Number,
 }, {
-    collection: "contacts"
+    collection: "response",
 });
-const Model = mongoose_1.default.model("Contact", ContactSchema);
+const Model = mongoose_1.default.model("Response", SurveyResponseSchema);
 exports.default = Model;
-//# sourceMappingURL=contact.js.map
+//# sourceMappingURL=surveyresponse.js.map

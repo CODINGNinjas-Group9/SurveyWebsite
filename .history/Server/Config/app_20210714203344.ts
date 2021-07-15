@@ -7,7 +7,7 @@ import mongoose, { mongo } from "mongoose";
 
 // import the index router and inject a reference here
 import indexRouter from "../Routes/index";
-import surveyListRouter from "../Routes/survey-list";
+import clothingListRouter from "../Routes/clothing-list";
 
 // Express Web App Configuration
 const app = express();
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, "../../node_modules")));
 
 // perform routing
 app.use("/", indexRouter);
-app.use("/survey-list", surveyListRouter); // create a separate "area" of our web application
+app.use("/clothing-list", clothingListRouter); // create a separate "area" of our web application
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
