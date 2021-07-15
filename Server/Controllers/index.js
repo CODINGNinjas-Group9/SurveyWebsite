@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+const Survey_1 = __importDefault(require("../Models/Survey"));
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
 }
@@ -9,6 +13,27 @@ function DisplayCreateSurveysPage(req, res, next) {
     res.render("index", { title: "Create Survey", page: "createsurvey" });
 }
 exports.DisplayCreateSurveysPage = DisplayCreateSurveysPage;
+function ProcessCreateSurveysPage(req, res, next) {
+    let newSurvey = new Survey_1.default({
+        title: "test Survey",
+        creator: "M.Hassan",
+        questions: {
+            q1: { questionText: req.body.q1 },
+            q2: { questionText: req.body.q2 },
+            q3: { questionText: req.body.q3 },
+            q4: { questionText: req.body.q4 },
+            q5: { questionText: req.body.q5 },
+        },
+    });
+    Survey_1.default.create(newSurvey, (err) => {
+        if (err) {
+            console.log(err);
+            return res.end(err);
+        }
+    });
+    res.redirect("/");
+}
+exports.ProcessCreateSurveysPage = ProcessCreateSurveysPage;
 function DisplayAvailableSurveysPage(req, res, next) {
     res.render("index", { title: "Available Surveys", page: "availablesurveys" });
 }

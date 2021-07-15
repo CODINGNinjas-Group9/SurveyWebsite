@@ -1,5 +1,4 @@
 import express, { Request, Response, NextFunction } from "express";
-import Survey from "../Models/Survey";
 
 // Display Page Functions
 
@@ -24,23 +23,6 @@ export function ProcessCreateSurveysPage(
   res: Response,
   next: NextFunction
 ): void {
-  let newSurvey = new Survey({
-    title: "test Survey",
-    creator: "M.Hassan",
-    questions: {
-      q1: { questionText: req.body.q1 },
-      q2: { questionText: req.body.q2 },
-      q3: { questionText: req.body.q3 },
-      q4: { questionText: req.body.q4 },
-      q5: { questionText: req.body.q5 },
-    },
-  });
-  Survey.create(newSurvey, (err) => {
-    if (err) {
-      console.log(err);
-      return res.end(err);
-    }
-  });
   res.redirect("/");
 }
 

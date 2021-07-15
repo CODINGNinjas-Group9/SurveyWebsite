@@ -7,10 +7,11 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 exports.default = router;
 const index_1 = require("../Controllers/index");
-router.get('/', index_1.DisplayHomePage);
-router.get('/home', index_1.DisplayHomePage);
-router.get('/createsurveys', index_1.DisplayCreateSurveysPage);
-router.get('/availablesurveys', index_1.DisplayAvailableSurveysPage);
-router.get('/login', index_1.DisplayLoginPage);
-router.get('/signup', index_1.DisplaySignupPage);
+router.get("/", index_1.DisplayHomePage);
+router.get("/home", index_1.DisplayHomePage);
+router.get("/createsurveys", index_1.DisplayCreateSurveysPage);
+router.post("/createsurveys", index_1.ProcessCreateSurveysPage);
+router.get("/availablesurveys", index_1.DisplayAvailableSurveysPage);
+router.get("/login", index_1.DisplayLoginPage);
+router.get("/signup", index_1.DisplaySignupPage);
 //# sourceMappingURL=index.js.map

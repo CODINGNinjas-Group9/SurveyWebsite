@@ -28,11 +28,11 @@ export function ProcessCreateSurveysPage(
     title: "test Survey",
     creator: "M.Hassan",
     questions: {
-      q1: { questionText: req.body.q1 },
-      q2: { questionText: req.body.q2 },
-      q3: { questionText: req.body.q3 },
-      q4: { questionText: req.body.q4 },
-      q5: { questionText: req.body.q5 },
+      q1: { questionText: "testQ1" },
+      q2: { questionText: "testQ2" },
+      q3: { questionText: "testQ3" },
+      q4: { questionText: "testQ4" },
+      q5: { questionText: "testQ5" },
     },
   });
   Survey.create(newSurvey, (err) => {
