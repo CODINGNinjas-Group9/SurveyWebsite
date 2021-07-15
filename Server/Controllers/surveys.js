@@ -59,11 +59,11 @@ function ProcessSurveyPage(req, res, next) {
     let newSurveyResponse = new surveyresponse_1.default({
         surveyId: id,
         candidateName: req.body.candidateName,
-        q1ResNo: req.body.q1ResNo,
-        q2ResNo: req.body.q2ResNo,
-        q3ResNo: req.body.q3ResNo,
-        q4ResNo: req.body.q4ResNo,
-        q5ResNo: req.body.q5ResNo,
+        q1ResNo: req.body.group1,
+        q2ResNo: req.body.group2,
+        q3ResNo: req.body.group3,
+        q4ResNo: req.body.group4,
+        q5ResNo: req.body.group5,
     });
     surveyresponse_1.default.create(newSurveyResponse, (err) => {
         if (err) {
