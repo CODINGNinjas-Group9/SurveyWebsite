@@ -11,8 +11,8 @@ function DisplaySurveyListPage(req, res, next) {
             return console.error(err);
         }
         res.render("index", {
-            title: "Clothing List",
-            page: "clothing-list",
+            title: "Survey List",
+            page: "survey-list",
             surveys: surveyCollection,
         });
     });
