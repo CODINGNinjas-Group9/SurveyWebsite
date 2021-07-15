@@ -11,8 +11,6 @@ import {
   DisplayLoginPage,
   DisplaySignupPage,
   ProcessCreateSurveysPage,
-  DisplayCreateMcqSurveysPage,
-  ProcessCreateMcqSurveysPage,
 } from "../Controllers/index";
 
 /* GET home page. */
@@ -21,19 +19,12 @@ router.get("/", DisplayHomePage);
 /* GET home page. */
 router.get("/home", DisplayHomePage);
 
-/* Get template selection page. */
+/* GET create survey page. */
+router.get("/createsurveys", DisplayCreateSurveysPage);
 router.get("/createSurveyTemplate", DisplayCreateSurveyTemplatePage);
 
 /* GET create survey page. */
-router.get("/createsurveys", DisplayCreateSurveysPage);
-
-/* GET create survey page. */
 router.post("/createsurveys", ProcessCreateSurveysPage);
-
-router.get("/createmcqsurveys", DisplayCreateMcqSurveysPage);
-
-/* GET create survey page. */
-router.post("/createmcqsurveys", ProcessCreateMcqSurveysPage);
 
 /* GET availbale surveys page. */
 router.get("/availablesurveys", DisplayAvailableSurveysPage);
