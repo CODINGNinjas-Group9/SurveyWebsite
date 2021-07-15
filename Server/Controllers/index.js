@@ -10,7 +10,7 @@ function DisplayHomePage(req, res, next) {
 }
 exports.DisplayHomePage = DisplayHomePage;
 function DisplayCreateSurveysPage(req, res, next) {
-    res.render("index", { title: "Create Survey", page: "createsurvey" });
+    res.render("index", { title: "Create Survey", page: "createSurvey" });
 }
 exports.DisplayCreateSurveysPage = DisplayCreateSurveysPage;
 function ProcessCreateSurveysPage(req, res, next) {
