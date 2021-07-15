@@ -11,7 +11,6 @@
               <tr>
                 
                 <th scope="col">Name</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -22,8 +21,7 @@
               
               <tr>
                 <th scope="row"><%= count + 1 %></th>
-                <td><%= surveys[count].title %> </td>
-                <td><a href="/survey-list/<%=surveys[count]._id%>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> View</a><td>
+               <a href="/<%surveys[count]._id%>> <td><%= surveys[count].title %> </td></a>
               </tr>
 
               <% } %>

@@ -39,7 +39,18 @@ function DisplayAddPage(req, res, next) {
 }
 exports.DisplayAddPage = DisplayAddPage;
 function DisplaySurveyPage(req, res, next) {
-    res.render("index", { title: "Add", page: "survey", survey: "" });
+    let id = req.params.id;
+    Survey_1.default.findById(id, {}, {}, (err, survey) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.render("index", {
+            title: "survey.title",
+            page: "survey",
+            survey: survey,
+        });
+    });
 }
 exports.DisplaySurveyPage = DisplaySurveyPage;
 //# sourceMappingURL=surveys.js.map

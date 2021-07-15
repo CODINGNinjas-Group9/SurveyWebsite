@@ -62,6 +62,7 @@ export function DisplaySurveyPage(
   next: NextFunction
 ): void {
   let id = req.params.id;
+
   Survey.findById(id, {}, {}, (err, survey) => {
     if (err) {
       console.error(err);
@@ -69,6 +70,7 @@ export function DisplaySurveyPage(
     }
 
     // show the survey page
+    console.log("Testing");
     res.render("index", {
       title: "survey.title",
       page: "survey",
