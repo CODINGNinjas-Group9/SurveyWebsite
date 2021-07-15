@@ -1,24 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
 }
 exports.DisplayHomePage = DisplayHomePage;
-function DisplayAboutPage(req, res, next) {
-    res.render("index", { title: "About Us", page: "about" });
+function DisplayCreateSurveysPage(req, res, next) {
+    res.render("index", { title: "Create Survey", page: "createsurvey" });
 }
-exports.DisplayAboutPage = DisplayAboutPage;
-function DisplayProjectsPage(req, res, next) {
-    res.render("index", { title: "Our Projects", page: "projects" });
+exports.DisplayCreateSurveysPage = DisplayCreateSurveysPage;
+function DisplayAvailableSurveysPage(req, res, next) {
+    res.render("index", { title: "Available Surveys", page: "availablesurveys" });
 }
-exports.DisplayProjectsPage = DisplayProjectsPage;
-function DisplayServicesPage(req, res, next) {
-    res.render("index", { title: "Our Services", page: "services" });
+exports.DisplayAvailableSurveysPage = DisplayAvailableSurveysPage;
+function DisplayLoginPage(req, res, next) {
+    res.render("index", { title: "Login", page: "login" });
 }
-exports.DisplayServicesPage = DisplayServicesPage;
-function DisplayContactPage(req, res, next) {
-    res.render("index", { title: "Contact Us", page: "contact" });
+exports.DisplayLoginPage = DisplayLoginPage;
+function DisplaySignupPage(req, res, next) {
+    res.render("index", { title: "Sign Up", page: "signup" });
 }
-exports.DisplayContactPage = DisplayContactPage;
+exports.DisplaySignupPage = DisplaySignupPage;
 //# sourceMappingURL=index.js.map
