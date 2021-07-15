@@ -16,7 +16,7 @@ export function DisplayCreateSurveysPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", { title: "Create Survey", page: "createsurvey" });
+  res.render("index", { title: "Create Survey", page: "createSurvey" });
 }
 
 export function ProcessCreateSurveysPage(
