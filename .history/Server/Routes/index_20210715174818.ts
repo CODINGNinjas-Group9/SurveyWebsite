@@ -21,16 +21,17 @@ router.get("/", DisplayHomePage);
 /* GET home page. */
 router.get("/home", DisplayHomePage);
 
-/* Get template selection page. */
-router.get("/createSurveyTemplate", DisplayCreateSurveyTemplatePage);
-
 /* GET create survey page. */
 router.get("/createsurveys", DisplayCreateSurveysPage);
+router.get("/createSurveyTemplate", DisplayCreateSurveyTemplatePage);
 
 /* GET create survey page. */
 router.post("/createsurveys", ProcessCreateSurveysPage);
 
 router.get("/createmcqsurveys", DisplayCreateMcqSurveysPage);
+
+/* Get template selection page. */
+router.get("/createSurveyTemplate", DisplayCreateSurveyTemplatePage);
 
 /* GET create survey page. */
 router.post("/createmcqsurveys", ProcessCreateMcqSurveysPage);
