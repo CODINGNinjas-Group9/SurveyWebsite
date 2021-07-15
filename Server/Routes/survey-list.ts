@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 export default router;
 
-// instantiate an object of type clothing controller
+// instantiate an object of type survey controller
 import {
   DisplayAddPage,
   DisplaySurveyListPage,
@@ -11,7 +11,7 @@ import {
   ProcessSurveyPage,
 } from "../Controllers/surveys";
 
-// Display the Clothing-List Page
+// Display the Survey List Page
 router.get("/", DisplaySurveyListPage); // default route
 
 // Display the Edit page by id

@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from "express";
 
-// Clothing Model
+// Survey Model
 import Survey from "../Models/Survey";
 import SurveyResponse from "../Models/surveyresponse";
 
@@ -10,7 +10,7 @@ export function DisplaySurveyListPage(
   res: Response,
   next: NextFunction
 ): void {
-  // db.clothing.find()
+  // db.surveycollection.find()
   Survey.find(function (err, surveyCollection) {
     if (err) {
       return console.error(err);
