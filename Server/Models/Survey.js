@@ -61,11 +61,11 @@ const SurveySchema = new Schema({
                 },
                 opt4: {
                     optNo: { type: Number, default: 4 },
-                    optText: { type: String, default: "Strongly Disagree" },
+                    optText: { type: String, default: "Slightly Disagree" },
                 },
                 opt5: {
                     optNo: { type: Number, default: 5 },
-                    optText: { type: String, default: "Slightly Disagree" },
+                    optText: { type: String, default: "Strongly Disagree" },
                 },
             },
         },
