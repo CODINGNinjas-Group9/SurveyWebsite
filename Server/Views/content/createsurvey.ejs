@@ -1,8 +1,8 @@
-<body style="background-color:rgb(117, 197, 151)">
-    <div class="container">
+<body style="background-color:#ABEBC6">
+    <div class="container-fluid bg-3 text-center">
         <h1> Create Your Survey in minutes... </h1>
         <form>
-            <div class="container">
+            <div class="container-fluid bg-3 text-center">
                 <div class="row">
                     <div class="col-sm-1">
                         <label for="inputName1" class="form-label">Survey Id</label>
@@ -24,37 +24,37 @@
                 <div class="row">
                     <div class="col-sm-9">
                         <input type="text" class="form-control" placeholder="Enter your first question" id="q1"
-                            aria-describedby="question1">
+                            aria-describedby="q1" aria-label="q1" name="q1" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
                         <input type="text" class="form-control" placeholder="Enter your second question" id="q2"
-                            aria-describedby="question2">
+                            aria-describedby="q2" aria-label="q2" name="q2" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
                         <input type="text" class="form-control" placeholder="Enter your third question" id="q3"
-                            aria-describedby="question3">
+                            aria-describedby="q3" aria-label="q3" name="q3" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" placeholder="Enter your fourth question" id="question4"
-                            aria-describedby="question4">
+                        <input type="text" class="form-control" placeholder="Enter your fourth question" id="q4"
+                            aria-describedby="q4" aria-label="q4" name="q4" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" placeholder="Enter your fifth question" id="question5"
-                            aria-describedby="question5">
+                        <input type="text" class="form-control" placeholder="Enter your fifth question" id="q5"
+                            aria-describedby="q5" aria-label="q5" name="q5" required>
                     </div>
                 </div>
             </div>
         </form>
-        
-        <form method="get" action="/home">
+
+        <form method="post" action="/createsurveys">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-1">
