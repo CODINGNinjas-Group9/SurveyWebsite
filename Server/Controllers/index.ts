@@ -67,3 +67,25 @@ export function DisplaySignupPage(
 ): void {
   res.render("index", { title: "Sign Up", page: "signup" });
 }
+
+export function DisplayCreateSurveyTemplatePage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  res.render("index", {
+    title: "Create Survey",
+    page: "createSurveyTemplate",
+  });
+}
+
+export function DisplayCreateSurveyPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  res.render("index", {
+    title: "Create Survey",
+    page: "createSurvey",
+  });
+}

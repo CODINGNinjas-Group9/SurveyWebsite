@@ -4,7 +4,8 @@ export default router;
 
 // instantiate an object of type index controller
 import {
-  DisplayCreateSurveysPage,
+  DisplayCreateSurveyTemplatePage,
+  DisplayCreateSurveyPage,
   DisplayAvailableSurveysPage,
   DisplayHomePage,
   DisplayLoginPage,
@@ -19,7 +20,9 @@ router.get("/", DisplayHomePage);
 router.get("/home", DisplayHomePage);
 
 /* GET create survey page. */
-router.get("/createsurveys", DisplayCreateSurveysPage);
+/*router.get("/createsurveys", DisplayCreateSurveysPage);*/
+router.get("/createSurveyTemplate", DisplayCreateSurveyTemplatePage);
+router.get("/createSurvey", DisplayCreateSurveyPage);
 
 /* GET create survey page. */
 router.post("/createsurveys", ProcessCreateSurveysPage);

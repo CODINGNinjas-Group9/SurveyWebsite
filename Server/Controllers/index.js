@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+exports.DisplayCreateSurveyPage = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
@@ -46,4 +46,18 @@ function DisplaySignupPage(req, res, next) {
     res.render("index", { title: "Sign Up", page: "signup" });
 }
 exports.DisplaySignupPage = DisplaySignupPage;
+function DisplayCreateSurveyTemplatePage(req, res, next) {
+    res.render("index", {
+        title: "Create Survey",
+        page: "createSurveyTemplate",
+    });
+}
+exports.DisplayCreateSurveyTemplatePage = DisplayCreateSurveyTemplatePage;
+function DisplayCreateSurveyPage(req, res, next) {
+    res.render("index", {
+        title: "Create Survey",
+        page: "createSurvey",
+    });
+}
+exports.DisplayCreateSurveyPage = DisplayCreateSurveyPage;
 //# sourceMappingURL=index.js.map
