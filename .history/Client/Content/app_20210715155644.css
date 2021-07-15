@@ -1,11 +1,10 @@
 /* your custom css goes here */
 
 h3 {
-  width: 400px;
-  border: 5px solid green;
+  width: 300px;
+  border: 15px solid green;
   padding: 50px;
   margin: 20px;
-  font-family: Arial, Helvetica, sans-serif;
   
 }
 
@@ -15,7 +14,6 @@ p {
   padding-right: 30px;
   padding-bottom: 50px;
   padding-left: 80px;
-  font-family: Arial, Helvetica, sans-serif;
 
 }
 a{
@@ -24,5 +22,4 @@ a{
   padding-right: 30px;
   padding-bottom: 50px;
   padding-left: 80px;
- font-family: Arial, Helvetica, sans-serif;
 }

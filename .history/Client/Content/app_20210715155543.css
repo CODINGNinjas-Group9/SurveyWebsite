@@ -1,0 +1,22 @@
+/* your custom css goes here */
+
+h3 {
+  font-size: 40px;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  
+}
+
+p {
+  font-size: 30px;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+
+}
+a{
+    font-size: 20px;
+}
