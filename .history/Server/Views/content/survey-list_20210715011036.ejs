@@ -9,6 +9,7 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
+                
                 <th scope="col">Sr</th>
                 <th scope="col">Title</th>
                 <th scope="col"></th>
@@ -22,7 +23,7 @@
               
               <tr>
                 <th scope="row"><%= count + 1 %></th>
-                <td><%= surveys[count].title %> </td>
+                <th><%= surveys[count].title %> </th>
                 <td><a href="/survey-list/<%=surveys[count]._id%>" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i> View</a><td>
               </tr>
 
