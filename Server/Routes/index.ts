@@ -1,3 +1,16 @@
+/*  File Descripton :-  index.ts routes File 
+    Website Name :- Survey Ninjas
+      Team Name :- CodingNinjas
+
+        Anureet Kaur - 301174444
+        Mridula Ramakrishnan - 301145813
+        Muhammad Hassan - 301178235
+        Nilam Keshwala - 301042029
+        Raghuveer Manam - 300715775
+        Roshna Raju - 301174285
+
+        Date: 16th July 2021
+*/
 import express from "express";
 const router = express.Router();
 export default router;
