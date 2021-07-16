@@ -1,12 +1,10 @@
-<body style="background-color:#ABEBC6">
 <div class="row justify-content-lg-center g-3">
   <h1>
     <%= survey.title %>
   </h1>
-  <label> <%= survey.description %></label>
   <!--Form Starts here-->
   <form class="form" method="post">
-   
+    <p> <%= survey.questions.q1.questionNo %>. &nbsp; <%= survey.questions.q1.questionText %></p>
     <div class="row">
       <div class="col-auto">
         <label for="candidatenameTextField" class="form-label" style="margin-top: 5%;">Enter Your Name: </label>
@@ -240,4 +238,3 @@
 <br><br><br>
 <br>
 <br>
-</body>
