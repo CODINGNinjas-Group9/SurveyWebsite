@@ -174,12 +174,6 @@ export function ProcessDeleteSurvey(
       console.log(err);
       res.end(err);
     }
+    res.redirect("/survey-list");
   });
-  SurveyResponse.deleteMany({ surveyId: id }, {}, (err) => {
-    if (err) {
-      console.log(err);
-      res.end(err);
-    }
-  });
-  res.redirect("/survey-list");
 }
