@@ -110,11 +110,11 @@ export function ProcessDeleteSurvey(
   next: NextFunction
 ): void {
   let id = req.params.id;
-  Survey.deleteOne({ _id: id }, {}, (err) => {
+  book.deleteOne({ _id: id }, {}, (err) => {
     if (err) {
       console.log(err);
       res.end(err);
     }
-    res.redirect("/survey-list");
+    res.redirect("/books");
   });
 }

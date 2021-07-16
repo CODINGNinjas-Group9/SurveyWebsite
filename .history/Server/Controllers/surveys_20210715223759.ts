@@ -103,18 +103,3 @@ export function ProcessSurveyPage(
 
   res.redirect("/");
 }
-//Get: Controller to delete a survey
-export function ProcessDeleteSurvey(
-  req: Request,
-  res: Response,
-  next: NextFunction
-): void {
-  let id = req.params.id;
-  Survey.deleteOne({ _id: id }, {}, (err) => {
-    if (err) {
-      console.log(err);
-      res.end(err);
-    }
-    res.redirect("/survey-list");
-  });
-}

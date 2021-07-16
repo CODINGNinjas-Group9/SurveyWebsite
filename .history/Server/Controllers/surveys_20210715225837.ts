@@ -112,6 +112,7 @@ export function ProcessDeleteSurvey(
   let id = req.params.id;
   Survey.deleteOne({ _id: id }, {}, (err) => {
     if (err) {
+      console.log("Hello");
       console.log(err);
       res.end(err);
     }

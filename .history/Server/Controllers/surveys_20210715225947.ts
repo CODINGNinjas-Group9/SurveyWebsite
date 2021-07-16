@@ -115,6 +115,7 @@ export function ProcessDeleteSurvey(
       console.log(err);
       res.end(err);
     }
+    console.log("Hello");
     res.redirect("/survey-list");
   });
 }

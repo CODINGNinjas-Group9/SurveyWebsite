@@ -9,7 +9,6 @@ import {
   DisplayEditPage,
   DisplaySurveyPage,
   ProcessSurveyPage,
-  ProcessDeleteSurvey,
 } from "../Controllers/surveys";
 
 // Display the Survey List Page
@@ -26,6 +25,3 @@ router.get("/:id", DisplaySurveyPage);
 
 // Process the post survey
 router.post("/:id", ProcessSurveyPage);
-
-// Process the delete survey
-router.get("/delete/:id", ProcessDeleteSurvey);

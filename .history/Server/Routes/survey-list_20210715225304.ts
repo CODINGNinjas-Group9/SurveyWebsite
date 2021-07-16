@@ -28,4 +28,4 @@ router.get("/:id", DisplaySurveyPage);
 router.post("/:id", ProcessSurveyPage);
 
 // Process the delete survey
-router.get("/delete/:id", ProcessDeleteSurvey);
+router.post("/delete/:id", ProcessDeleteSurvey);
