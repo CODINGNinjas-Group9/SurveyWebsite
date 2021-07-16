@@ -7,7 +7,16 @@ exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyP
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const surveyresponse_1 = __importDefault(require("../Models/surveyresponse"));
 function DisplaySurveyListPage(req, res, next) {
-    Survey_1.default.find(function (err, surveyCollection) {
+    let today = new Date();
+    let day = String(today.getDate()).padStart(2, "0");
+    let month = String(today.getMonth() + 1).padStart(2, "0");
+    let year = today.getFullYear();
+    let currentDate = year + "-" + month + "-" + day;
+    Survey_1.default.find({
+        validDate: {
+            $gte: currentDate,
+        },
+    }, function (err, surveyCollection) {
         if (err) {
             return console.error(err);
         }
