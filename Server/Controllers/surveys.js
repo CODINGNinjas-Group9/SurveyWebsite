@@ -116,8 +116,14 @@ function ProcessDeleteSurvey(req, res, next) {
             console.log(err);
             res.end(err);
         }
-        res.redirect("/survey-list");
     });
+    surveyresponse_1.default.deleteMany({ surveyId: id }, {}, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+    });
+    res.redirect("/survey-list");
 }
 exports.ProcessDeleteSurvey = ProcessDeleteSurvey;
 //# sourceMappingURL=surveys.js.map
