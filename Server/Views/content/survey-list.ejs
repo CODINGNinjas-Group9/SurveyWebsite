@@ -24,16 +24,17 @@
                 <td>
                   <%= surveys[count].title %>
                 </td>
-                <td class="d-flex justify-content-end"><a href="/survey-list/<%=surveys[count]._id%>" class="btn btn-primary btn-sm mx-2"><i
-                      class="fa fa-eye"></i> View</a>
-                
-                <a href="/survey-list/edit/<%=surveys[count]._id%>" class="btn btn-warning btn-sm mx-2"><i
+                <td class="d-flex justify-content-end"><a href="/survey-list/<%=surveys[count]._id%>"
+                    class="btn btn-primary btn-sm mx-2" style="background-color:#1E8449"><i class="fa fa-eye"></i>
+                    View</a>
+
+                  <a href="/survey-list/edit/<%=surveys[count]._id%>" class="btn btn-warning btn-sm mx-2"><i
                       class="fa fa-edit"></i> Update</a>
-                
-                <a href="/survey-list/delete/<%=surveys[count]._id%>" class="btn btn-danger btn-sm mx-2"><i
+
+                  <a href="/survey-list/delete/<%=surveys[count]._id%>" class="btn btn-danger btn-sm mx-2"><i
                       class="fa fa-minus-circle"></i> Delete</a>
                 </td>
-                
+
               </tr>
 
               <% } %>
