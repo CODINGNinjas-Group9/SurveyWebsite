@@ -9,6 +9,7 @@ exports.default = router;
 const surveys_1 = require("../Controllers/surveys");
 router.get("/", surveys_1.DisplaySurveyListPage);
 router.get("/edit/:id", surveys_1.DisplayEditPage);
+router.post("/edit/:id", surveys_1.ProcessEditPage);
 router.get("/edit", surveys_1.DisplayAddPage);
 router.get("/:id", surveys_1.DisplaySurveyPage);
 router.post("/:id", surveys_1.ProcessSurveyPage);

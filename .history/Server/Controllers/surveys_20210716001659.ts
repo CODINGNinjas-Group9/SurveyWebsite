@@ -72,7 +72,6 @@ export function ProcessEditPage(
   console.log(id);
 
   let updatedSurvey = new Survey({
-    _id: id,
     title: req.body.surveytitle,
     validDate: req.body.validity,
     description: req.body.description,

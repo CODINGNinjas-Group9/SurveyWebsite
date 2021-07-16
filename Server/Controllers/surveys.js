@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.DisplayAddPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
+exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.DisplayAddPage = exports.ProcessEditPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const surveyresponse_1 = __importDefault(require("../Models/surveyresponse"));
 function DisplaySurveyListPage(req, res, next) {
@@ -38,12 +38,38 @@ function DisplayEditPage(req, res, next) {
         }
         res.render("index", {
             title: "Edit",
-            page: "edit",
+            page: "updatesurvey",
             survey: surveyItemToEdit,
         });
     });
 }
 exports.DisplayEditPage = DisplayEditPage;
+function ProcessEditPage(req, res, next) {
+    let id = req.params.id;
+    console.log(id);
+    let updatedSurvey = new Survey_1.default({
+        _id: id,
+        title: req.body.surveytitle,
+        validDate: req.body.validity,
+        description: req.body.description,
+        creator: "Group-9",
+        questions: {
+            q1: { questionText: req.body.q1 },
+            q2: { questionText: req.body.q2 },
+            q3: { questionText: req.body.q3 },
+            q4: { questionText: req.body.q4 },
+            q5: { questionText: req.body.q5 },
+        },
+    });
+    Survey_1.default.updateOne({ _id: id }, updatedSurvey, {}, (err) => {
+        if (err) {
+            console.log(err);
+            res.end(err);
+        }
+        res.redirect("/survey-list");
+    });
+}
+exports.ProcessEditPage = ProcessEditPage;
 function DisplayAddPage(req, res, next) {
     res.render("index", { title: "Add", page: "edit", survey: "" });
 }
