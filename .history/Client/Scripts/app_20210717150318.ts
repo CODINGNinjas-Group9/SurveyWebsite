@@ -19,12 +19,11 @@
   function Start(): void {
     console.log("App Started");
   }
+
   window.addEventListener("load", Start);
 })();
-
-//Event Listener for delete button on survey list
 function deleteConfirmation(id: string) {
-  console.log(id);
+  console.log("Button clicked");
   let userAction = confirm(
     "Are you sure that you want to delete this survey ?\nWarning: All associated responses will also be deleted!"
   );

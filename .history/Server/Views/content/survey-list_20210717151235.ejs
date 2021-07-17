@@ -48,13 +48,14 @@
                   <a href="/survey-list/edit/<%=surveys[count]._id%>" class="btn btn-warning btn-sm mx-2"><i
                       class="fa fa-edit"></i> Update</a>
 
-                  <button id="deleteButton" name="deleteButton" onclick="deleteConfirmation('<%=surveys[count]._id%>')" class="btn btn-danger btn-sm mx-2"><i
+                  <button onclick=start() class="btn btn-danger btn-sm mx-2"><i
                       class="fa fa-minus-circle"></i> Delete</button>
                 </td>
 
               </tr>
 
               <% } %>
+
           </tbody>
         </table>
       </div>

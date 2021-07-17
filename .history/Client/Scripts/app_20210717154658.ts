@@ -23,7 +23,7 @@
 })();
 
 //Event Listener for delete button on survey list
-function deleteConfirmation(id: string) {
+function deleteConfirmation(id) {
   console.log(id);
   let userAction = confirm(
     "Are you sure that you want to delete this survey ?\nWarning: All associated responses will also be deleted!"

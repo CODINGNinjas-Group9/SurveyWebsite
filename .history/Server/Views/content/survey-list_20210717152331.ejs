@@ -48,13 +48,26 @@
                   <a href="/survey-list/edit/<%=surveys[count]._id%>" class="btn btn-warning btn-sm mx-2"><i
                       class="fa fa-edit"></i> Update</a>
 
-                  <button id="deleteButton" name="deleteButton" onclick="deleteConfirmation('<%=surveys[count]._id%>')" class="btn btn-danger btn-sm mx-2"><i
+                  <button onclick=deleteConfirmation(surveys[count]._id) class="btn btn-danger btn-sm mx-2"><i
                       class="fa fa-minus-circle"></i> Delete</button>
                 </td>
 
               </tr>
 
               <% } %>
+              <script>
+function deleteConfirmation(id: string) {
+  console.log("Button clicked");
+  let userAction = confirm(
+    "Are you sure that you want to delete this survey ?\nWarning: All associated responses will also be deleted!"
+  );
+  if (userAction == true) {
+    window.location.replace("/survey-list/delete/" + id);
+    return true;
+  } else {
+    return false;
+  }
+  </script>
           </tbody>
         </table>
       </div>
