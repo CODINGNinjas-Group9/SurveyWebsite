@@ -46,27 +46,23 @@ function DisplayEditPage(req, res, next) {
 exports.DisplayEditPage = DisplayEditPage;
 function ProcessEditPage(req, res, next) {
     let id = req.params.id;
-    console.log(id);
-    let updatedSurvey = new Survey_1.default({
-        _id: id,
-        title: req.body.surveytitle,
-        validDate: req.body.validity,
-        description: req.body.description,
-        creator: "Group-9",
-        questions: {
-            q1: { questionText: req.body.q1 },
-            q2: { questionText: req.body.q2 },
-            q3: { questionText: req.body.q3 },
-            q4: { questionText: req.body.q4 },
-            q5: { questionText: req.body.q5 },
-        },
-    });
-    Survey_1.default.updateOne({ _id: id }, updatedSurvey, {}, (err) => {
-        if (err) {
-            console.log(err);
-            res.end(err);
-        }
-        res.redirect("/survey-list");
+    Survey_1.default.findById(id, {}, {}, (err, updatedSurvey) => {
+        id = updatedSurvey._id;
+        updatedSurvey.title = req.body.surveytitle;
+        updatedSurvey.validDate = req.body.validity;
+        updatedSurvey.description = req.body.description;
+        updatedSurvey.questions.q1.questionText = req.body.q1;
+        updatedSurvey.questions.q2.questionText = req.body.q2;
+        updatedSurvey.questions.q3.questionText = req.body.q3;
+        updatedSurvey.questions.q4.questionText = req.body.q4;
+        updatedSurvey.questions.q5.questionText = req.body.q5;
+        Survey_1.default.updateOne({ _id: id }, updatedSurvey, {}, (err) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            }
+            res.redirect("/survey-list");
+        });
     });
 }
 exports.ProcessEditPage = ProcessEditPage;
