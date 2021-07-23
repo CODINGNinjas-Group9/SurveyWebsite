@@ -36,5 +36,5 @@ function deleteConfirmation(id: string) {
 }
 
 function changeVisibility(id: string) {
-  window.location.replace("/survey-list/visibility/" + id);
+  console.log(id);
 }

@@ -195,7 +195,7 @@ export function ProcessVisibilityChange(
 
   Survey.findById(id, {}, {}, (err, updatedSurvey) => {
     id = updatedSurvey._id;
-    updatedSurvey.visibility = !updatedSurvey.visibility;
+    updatedSurvey.visibility = updatedSurvey.visibility;
 
     Survey.updateOne({ _id: id }, updatedSurvey, {}, (err) => {
       if (err) {

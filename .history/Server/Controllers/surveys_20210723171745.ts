@@ -186,23 +186,23 @@ export function ProcessDeleteSurvey(
 }
 
 //Get: Process visibility change of a survey
-export function ProcessVisibilityChange(
+export function ProcessDeleteSurvey(
   req: Request,
   res: Response,
   next: NextFunction
 ): void {
   let id = req.params.id;
-
-  Survey.findById(id, {}, {}, (err, updatedSurvey) => {
-    id = updatedSurvey._id;
-    updatedSurvey.visibility = !updatedSurvey.visibility;
-
-    Survey.updateOne({ _id: id }, updatedSurvey, {}, (err) => {
-      if (err) {
-        console.log(err);
-        res.end(err);
-      }
-      res.redirect("/survey-list");
-    });
+  Survey.deleteOne({ _id: id }, {}, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    }
   });
+  SurveyResponse.deleteMany({ surveyId: id }, {}, (err) => {
+    if (err) {
+      console.log(err);
+      res.end(err);
+    }
+  });
+  res.redirect("/survey-list");
 }

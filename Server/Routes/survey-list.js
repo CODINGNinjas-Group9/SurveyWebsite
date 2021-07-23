@@ -14,4 +14,5 @@ router.get("/edit", surveys_1.DisplayAddPage);
 router.get("/:id", surveys_1.DisplaySurveyPage);
 router.post("/:id", surveys_1.ProcessSurveyPage);
 router.get("/delete/:id", surveys_1.ProcessDeleteSurvey);
+router.get("/visibility/:id", surveys_1.ProcessVisibilityChange);
 //# sourceMappingURL=survey-list.js.map

@@ -1,0 +1,69 @@
+<!-- 
+   File Descripton :-  survey-list.ejs File 
+    Website Name :- Survey Ninjas
+      Team Name :- CodingNinjas
+
+        Anureet Kaur - 301174444
+        Mridula Ramakrishnan - 301145813
+        Muhammad Hassan - 301178235
+        Nilam Keshwala - 301042029
+        Raghuveer Manam - 300715775
+        Roshna Raju - 301174285
+
+        Date: 16th July 2021
+-->
+
+<body style="background-color:#ABEBC6">
+  <div class="container-fluid bg-3">
+    <h3 class="text-center"><em><strong>
+          Available Surveys List
+        </strong></em></h3>
+    <div class="row">
+      <div class="col">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Sr</th>
+              <th scope="col">Title</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- Repeatable Row Template -->
+
+            <% for(let count=0; count < surveys.length; count++) { %>
+
+              <tr>
+                <th scope="row">
+                  <%= count + 1 %>
+                </th>
+                <td>
+                  <%= surveys[count].title %>
+                </td>
+                
+                <td class="d-flex justify-content-end">
+                
+                <a href="/survey-list/<%=surveys[count]._id%>"
+                    class="btn btn-primary btn-sm mx-2" style="background-color:#1E8449"><i class="fa fa-eye"></i>
+                    View</a>
+
+                  <a href="/survey-list/edit/<%=surveys[count]._id%>" class="btn btn-warning btn-sm mx-2"><i
+                      class="fa fa-edit"></i> Update</a>
+
+                  <button id="deleteButton" name="deleteButton" onclick="deleteConfirmation('<%=surveys[count]._id%>')" class="btn btn-danger btn-sm mx-2"><i
+                      class="fa fa-minus-circle"></i> Delete</button>
+                     <label class="switch">
+  <input type="checkbox" <% if(surveys[count].visibility){%> checked <%}%>>
+  <span class="slider round"></span>
+</label>
+                </td>
+
+              </tr>
+
+              <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

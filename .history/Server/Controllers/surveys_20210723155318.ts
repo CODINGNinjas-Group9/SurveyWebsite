@@ -33,14 +33,10 @@ export function DisplaySurveyListPage(
   let currentDate = year + "-" + month + "-" + day;
   Survey.find(
     {
-      $or: [
-        {
-          validDate: {
-            $gte: currentDate,
-          },
-        },
-        { visibility: true },
-      ],
+      $or:[
+      validDate: {
+        $gte: currentDate,
+      }, visibility:true]
     },
     function (err, surveyCollection) {
       if (err) {
@@ -183,26 +179,4 @@ export function ProcessDeleteSurvey(
     }
   });
   res.redirect("/survey-list");
-}
-
-//Get: Process visibility change of a survey
-export function ProcessVisibilityChange(
-  req: Request,
-  res: Response,
-  next: NextFunction
-): void {
-  let id = req.params.id;
-
-  Survey.findById(id, {}, {}, (err, updatedSurvey) => {
-    id = updatedSurvey._id;
-    updatedSurvey.visibility = !updatedSurvey.visibility;
-
-    Survey.updateOne({ _id: id }, updatedSurvey, {}, (err) => {
-      if (err) {
-        console.log(err);
-        res.end(err);
-      }
-      res.redirect("/survey-list");
-    });
-  });
 }
