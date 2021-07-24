@@ -19,4 +19,5 @@ router.get("/login", index_1.DisplayLoginPage);
 router.get("/signup", index_1.DisplaySignupPage);
 router.post("/signup", index_1.PostRegisterController);
 router.post("/login", index_1.PostLoginController);
+router.get("/logout", index_1.LogoutController);
 //# sourceMappingURL=index.js.map

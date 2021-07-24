@@ -16,7 +16,6 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #879b97;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/"><img src="/Assets/images/teamlogo.png" width="50" height="50" /></a>
-    <span class="initialism"><strong> <%=displayName%></strong></span>
      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,12 +35,14 @@
         <% if(displayName) { %>
           
           <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i><strong> Logout</strong></a>
+            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
           </li>
-         
+          <li class="nav-item">
+            <a class="nav-link" href=""> <%=displayName%></a>
+          </li>
           <% } else { %>
           <li class="nav-item">
-            <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt fa-lg"></i><strong> Login</strong></a>
+            <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a>
           </li>
           <% } %>
       </ul></div>

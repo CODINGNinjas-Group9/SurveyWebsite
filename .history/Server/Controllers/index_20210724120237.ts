@@ -79,11 +79,7 @@ export function DisplayCreateMcqSurveysPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", {
-    title: "Create Survey",
-    page: "createmcqsurvey",
-    displayName: GetName(req),
-  });
+  res.render("index", { title: "Create Survey", page: "createmcqsurvey" });
 }
 
 // Post MCQs survey create

@@ -48,7 +48,11 @@ function ProcessCreateSurveysPage(req, res, next) {
 }
 exports.ProcessCreateSurveysPage = ProcessCreateSurveysPage;
 function DisplayCreateMcqSurveysPage(req, res, next) {
-    res.render("index", { title: "Create Survey", page: "createmcqsurvey" });
+    res.render("index", {
+        title: "Create Survey",
+        page: "createmcqsurvey",
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplayCreateMcqSurveysPage = DisplayCreateMcqSurveysPage;
 function ProcessCreateMcqSurveysPage(req, res, next) {
@@ -182,6 +186,7 @@ function DisplayLoginPage(req, res, next) {
         title: "Login",
         page: "login",
         messages: req.flash("loginMessage"),
+        displayName: Utils_1.GetName(req),
     });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
@@ -198,6 +203,7 @@ function DisplayCreateSurveyTemplatePage(req, res, next) {
     res.render("index", {
         title: "Create Survey",
         page: "createSurveyTemplate",
+        displayName: Utils_1.GetName(req),
     });
 }
 exports.DisplayCreateSurveyTemplatePage = DisplayCreateSurveyTemplatePage;
