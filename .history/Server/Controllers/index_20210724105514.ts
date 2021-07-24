@@ -227,7 +227,6 @@ export function DisplaySignupPage(
   res.render("index", {
     title: "Sign Up",
     page: "signup",
-    messages: req.flash("registerMessage"),
   });
 }
 
@@ -264,7 +263,7 @@ export function PostRegisterController(
       }
       req.flash("registerMessage", "Registration Error");
 
-      return res.redirect("/signup");
+      return res.redirect("/register");
     }
 
     //after successful registration - login the user

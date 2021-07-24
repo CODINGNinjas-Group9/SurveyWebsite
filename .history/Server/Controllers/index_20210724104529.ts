@@ -224,11 +224,7 @@ export function DisplaySignupPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", {
-    title: "Sign Up",
-    page: "signup",
-    messages: req.flash("registerMessage"),
-  });
+  res.render("index", { title: "Sign Up", page: "signup" });
 }
 
 // Get survey template selection page
@@ -264,7 +260,7 @@ export function PostRegisterController(
       }
       req.flash("registerMessage", "Registration Error");
 
-      return res.redirect("/signup");
+      return res.redirect("/register");
     }
 
     //after successful registration - login the user

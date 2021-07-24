@@ -165,11 +165,19 @@ function DisplayAvailableSurveysPage(req, res, next) {
 }
 exports.DisplayAvailableSurveysPage = DisplayAvailableSurveysPage;
 function DisplayLoginPage(req, res, next) {
-    res.render("index", { title: "Login", page: "login" });
+    res.render("index", {
+        title: "Login",
+        page: "login",
+        messages: req.flash("loginMessage"),
+    });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplaySignupPage(req, res, next) {
-    res.render("index", { title: "Sign Up", page: "signup" });
+    res.render("index", {
+        title: "Sign Up",
+        page: "signup",
+        messages: req.flash("registerMessage"),
+    });
 }
 exports.DisplaySignupPage = DisplaySignupPage;
 function DisplayCreateSurveyTemplatePage(req, res, next) {
@@ -192,7 +200,7 @@ function PostRegisterController(req, res, next) {
                 console.error("Error: User Already Exists");
             }
             req.flash("registerMessage", "Registration Error");
-            return res.redirect("/register");
+            return res.redirect("/signup");
         }
         return passport_1.default.authenticate("local")(req, res, () => {
             return res.redirect("/survey-list");

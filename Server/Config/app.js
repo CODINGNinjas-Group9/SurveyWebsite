@@ -51,7 +51,6 @@ db.on("error", function () {
 db.once("open", function () {
     console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
 });
-app.use(connect_flash_1.default());
 app.use(express_session_1.default({
     secret: DBConfig.mySecret,
     saveUninitialized: false,
@@ -62,6 +61,7 @@ app.use(passport_1.default.session());
 passport_1.default.use(user_1.default.createStrategy());
 passport_1.default.serializeUser(user_1.default.serializeUser());
 passport_1.default.deserializeUser(user_1.default.deserializeUser());
+app.use(connect_flash_1.default());
 app.set("views", path_1.default.join(__dirname, "../Views"));
 app.set("view engine", "ejs");
 app.use(morgan_1.default("dev"));

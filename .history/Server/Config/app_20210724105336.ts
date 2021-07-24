@@ -66,7 +66,6 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(flash());
 // view engine setup
 app.set("views", path.join(__dirname, "../Views"));
 app.set("view engine", "ejs");
@@ -83,7 +82,7 @@ app.use("/", indexRouter);
 app.use("/survey-list", surveyListRouter); // create a separate "area" of our web application
 //authentication configuration and initialization
 app.use(cors);
-
+app.use(flash());
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
