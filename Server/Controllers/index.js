@@ -7,12 +7,21 @@ exports.LogoutController = exports.PostLoginController = exports.PostRegisterCon
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const user_1 = __importDefault(require("../Models/user"));
 const passport_1 = __importDefault(require("passport"));
+const Utils_1 = require("../Utils");
 function DisplayHomePage(req, res, next) {
-    res.render("index", { title: "Home", page: "home" });
+    res.render("index", {
+        title: "Home",
+        page: "home",
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplayHomePage = DisplayHomePage;
 function DisplayCreateSurveysPage(req, res, next) {
-    res.render("index", { title: "Create Survey", page: "createsurvey" });
+    res.render("index", {
+        title: "Create Survey",
+        page: "createsurvey",
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplayCreateSurveysPage = DisplayCreateSurveysPage;
 function ProcessCreateSurveysPage(req, res, next) {
@@ -161,7 +170,11 @@ function ProcessCreateMcqSurveysPage(req, res, next) {
 }
 exports.ProcessCreateMcqSurveysPage = ProcessCreateMcqSurveysPage;
 function DisplayAvailableSurveysPage(req, res, next) {
-    res.render("index", { title: "Available Surveys", page: "availablesurveys" });
+    res.render("index", {
+        title: "Available Surveys",
+        page: "availablesurveys",
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplayAvailableSurveysPage = DisplayAvailableSurveysPage;
 function DisplayLoginPage(req, res, next) {
@@ -177,6 +190,7 @@ function DisplaySignupPage(req, res, next) {
         title: "Sign Up",
         page: "signup",
         messages: req.flash("registerMessage"),
+        displayName: Utils_1.GetName(req),
     });
 }
 exports.DisplaySignupPage = DisplaySignupPage;

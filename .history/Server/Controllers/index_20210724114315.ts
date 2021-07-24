@@ -241,7 +241,6 @@ export function DisplaySignupPage(
     title: "Sign Up",
     page: "signup",
     messages: req.flash("registerMessage"),
-    displayName: GetName(req),
   });
 }
 

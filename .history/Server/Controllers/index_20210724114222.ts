@@ -25,11 +25,7 @@ export function DisplayHomePage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", {
-    title: "Home",
-    page: "home",
-    displayName: GetName(req),
-  });
+  res.render("index", { title: "Home", page: "home" });
 }
 
 // Get Agree/Disagree survey Create page
@@ -211,11 +207,7 @@ export function DisplayAvailableSurveysPage(
   res: Response,
   next: NextFunction
 ): void {
-  res.render("index", {
-    title: "Available Surveys",
-    page: "availablesurveys",
-    displayName: GetName(req),
-  });
+  res.render("index", { title: "Available Surveys", page: "availablesurveys" });
 }
 
 // Get Login page
@@ -241,7 +233,6 @@ export function DisplaySignupPage(
     title: "Sign Up",
     page: "signup",
     messages: req.flash("registerMessage"),
-    displayName: GetName(req),
   });
 }
 

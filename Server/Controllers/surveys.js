@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProcessVisibilityChange = exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.DisplayAddPage = exports.ProcessEditPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const surveyresponse_1 = __importDefault(require("../Models/surveyresponse"));
+const Utils_1 = require("../Utils");
 function DisplaySurveyListPage(req, res, next) {
     let today = new Date();
     let day = String(today.getDate()).padStart(2, "0");
@@ -29,6 +30,7 @@ function DisplaySurveyListPage(req, res, next) {
             title: "Survey List",
             page: "survey-list",
             surveys: surveyCollection,
+            displayName: Utils_1.GetName(req),
         });
     });
 }
@@ -45,6 +47,7 @@ function DisplayEditPage(req, res, next) {
             title: "Edit",
             page: "updatesurvey",
             survey: surveyItemToEdit,
+            displayName: Utils_1.GetName(req),
         });
     });
 }
@@ -86,6 +89,7 @@ function DisplaySurveyPage(req, res, next) {
             title: survey.title,
             page: "survey",
             survey: survey,
+            displayName: Utils_1.GetName(req),
         });
     });
 }
