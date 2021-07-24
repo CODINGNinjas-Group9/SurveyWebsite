@@ -17,4 +17,6 @@ router.post("/createmcqsurveys", index_1.ProcessCreateMcqSurveysPage);
 router.get("/availablesurveys", index_1.DisplayAvailableSurveysPage);
 router.get("/login", index_1.DisplayLoginPage);
 router.get("/signup", index_1.DisplaySignupPage);
+router.post("/signup", index_1.PostRegisterController);
+router.post("/login", index_1.PostLoginController);
 //# sourceMappingURL=index.js.map

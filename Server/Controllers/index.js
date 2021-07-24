@@ -3,8 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
+const user_1 = __importDefault(require("../Models/user"));
+const passport_1 = __importDefault(require("passport"));
 function DisplayHomePage(req, res, next) {
     res.render("index", { title: "Home", page: "home" });
 }
@@ -177,4 +179,50 @@ function DisplayCreateSurveyTemplatePage(req, res, next) {
     });
 }
 exports.DisplayCreateSurveyTemplatePage = DisplayCreateSurveyTemplatePage;
+function PostRegisterController(req, res, next) {
+    let newUser = new user_1.default({
+        username: req.body.username,
+        email: req.body.emailAddress,
+        displayName: req.body.FirstName + " " + req.body.LastName,
+    });
+    user_1.default.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.error("Error: Inserting New User");
+            if (err.name == "UserExistsError") {
+                console.error("Error: User Already Exists");
+            }
+            req.flash("registerMessage", "Registration Error");
+            return res.redirect("/register");
+        }
+        return passport_1.default.authenticate("local")(req, res, () => {
+            return res.redirect("/survey-list");
+        });
+    });
+}
+exports.PostRegisterController = PostRegisterController;
+function PostLoginController(req, res, next) {
+    passport_1.default.authenticate("local", (err, user, info) => {
+        if (err) {
+            console.error(err);
+            return next(err);
+        }
+        if (!user) {
+            req.flash("loginMessage", "Authentication Error");
+            return res.redirect("/login");
+        }
+        req.login(user, (err) => {
+            if (err) {
+                console.error(err);
+                return next(err);
+            }
+            return res.redirect("/survey-list");
+        });
+    })(req, res, next);
+}
+exports.PostLoginController = PostLoginController;
+function LogoutController(req, res, next) {
+    req.logout();
+    res.redirect("/login");
+}
+exports.LogoutController = LogoutController;
 //# sourceMappingURL=index.js.map
