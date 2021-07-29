@@ -39,8 +39,8 @@
         </div> -->
 
   <div class="row">
-    <div class="col-sm-12 mb-5">
-      <div class="card border-success">
+    <div class="col-sm-6 mb-5">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title">Create your survey in minutes !!</h5>
           <p class="card-text">
@@ -66,19 +66,14 @@
           >
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
-  <div class="row">
-    <h1 class="headerText">Take your survey in seconds !!</h1>
-  </div>
-  <hr/>
-  <br>
   <%for(let count=0;count<surveys.length;count++){%>
   <%if(count%2==0){%>
   <div class="row mb-5">
   <%}%>
   <div class="col-sm-6">
-      <div class="card border-success">
+      <div class="card">
         <div class="card-body">
           <h5 class="card-title"><%=surveys[count].title%></h5>
           <p class="card-text">
