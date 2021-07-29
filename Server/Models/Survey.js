@@ -10,6 +10,7 @@ const SurveySchema = new Schema({
     creator: String,
     validDate: String,
     description: String,
+    visibility: { type: Boolean, default: false },
     questions: {
         q1: {
             questionNo: {

@@ -3,19 +3,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.DisplayAddPage = exports.ProcessEditPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
+exports.ProcessVisibilityChange = exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.ProcessEditPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const surveyresponse_1 = __importDefault(require("../Models/surveyresponse"));
+const Utils_1 = require("../Utils");
 function DisplaySurveyListPage(req, res, next) {
-    let today = new Date();
-    let day = String(today.getDate()).padStart(2, "0");
-    let month = String(today.getMonth() + 1).padStart(2, "0");
-    let year = today.getFullYear();
-    let currentDate = year + "-" + month + "-" + day;
     Survey_1.default.find({
-        validDate: {
-            $gte: currentDate,
-        },
+        creator: req.user.username,
     }, function (err, surveyCollection) {
         if (err) {
             return console.error(err);
@@ -24,6 +18,7 @@ function DisplaySurveyListPage(req, res, next) {
             title: "Survey List",
             page: "survey-list",
             surveys: surveyCollection,
+            displayName: Utils_1.GetName(req),
         });
     });
 }
@@ -40,6 +35,7 @@ function DisplayEditPage(req, res, next) {
             title: "Edit",
             page: "updatesurvey",
             survey: surveyItemToEdit,
+            displayName: Utils_1.GetName(req),
         });
     });
 }
@@ -66,10 +62,6 @@ function ProcessEditPage(req, res, next) {
     });
 }
 exports.ProcessEditPage = ProcessEditPage;
-function DisplayAddPage(req, res, next) {
-    res.render("index", { title: "Add", page: "edit", survey: "" });
-}
-exports.DisplayAddPage = DisplayAddPage;
 function DisplaySurveyPage(req, res, next) {
     let id = req.params.id;
     Survey_1.default.findById(id, {}, {}, (err, survey) => {
@@ -81,6 +73,7 @@ function DisplaySurveyPage(req, res, next) {
             title: survey.title,
             page: "survey",
             survey: survey,
+            displayName: Utils_1.GetName(req),
         });
     });
 }
@@ -122,4 +115,19 @@ function ProcessDeleteSurvey(req, res, next) {
     res.redirect("/survey-list");
 }
 exports.ProcessDeleteSurvey = ProcessDeleteSurvey;
+function ProcessVisibilityChange(req, res, next) {
+    let id = req.params.id;
+    Survey_1.default.findById(id, {}, {}, (err, updatedSurvey) => {
+        id = updatedSurvey._id;
+        updatedSurvey.visibility = !updatedSurvey.visibility;
+        Survey_1.default.updateOne({ _id: id }, updatedSurvey, {}, (err) => {
+            if (err) {
+                console.log(err);
+                res.end(err);
+            }
+            res.redirect("/survey-list");
+        });
+    });
+}
+exports.ProcessVisibilityChange = ProcessVisibilityChange;
 //# sourceMappingURL=surveys.js.map

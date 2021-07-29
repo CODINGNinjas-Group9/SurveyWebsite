@@ -7,11 +7,12 @@ const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 exports.default = router;
 const surveys_1 = require("../Controllers/surveys");
-router.get("/", surveys_1.DisplaySurveyListPage);
-router.get("/edit/:id", surveys_1.DisplayEditPage);
-router.post("/edit/:id", surveys_1.ProcessEditPage);
-router.get("/edit", surveys_1.DisplayAddPage);
+const Utils_1 = require("../Utils");
+router.get("/", Utils_1.AuthGuard, surveys_1.DisplaySurveyListPage);
+router.get("/edit/:id", Utils_1.AuthGuard, surveys_1.DisplayEditPage);
+router.post("/edit/:id", Utils_1.AuthGuard, surveys_1.ProcessEditPage);
 router.get("/:id", surveys_1.DisplaySurveyPage);
 router.post("/:id", surveys_1.ProcessSurveyPage);
-router.get("/delete/:id", surveys_1.ProcessDeleteSurvey);
+router.get("/delete/:id", Utils_1.AuthGuard, surveys_1.ProcessDeleteSurvey);
+router.get("/visibility/:id", Utils_1.AuthGuard, surveys_1.ProcessVisibilityChange);
 //# sourceMappingURL=survey-list.js.map

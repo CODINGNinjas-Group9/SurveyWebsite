@@ -3,14 +3,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
+const user_1 = __importDefault(require("../Models/user"));
+const passport_1 = __importDefault(require("passport"));
+const Utils_1 = require("../Utils");
 function DisplayHomePage(req, res, next) {
-    res.render("index", { title: "Home", page: "home" });
+    let today = new Date();
+    let day = String(today.getDate()).padStart(2, "0");
+    let month = String(today.getMonth() + 1).padStart(2, "0");
+    let year = today.getFullYear();
+    let currentDate = year + "-" + month + "-" + day;
+    Survey_1.default.find({
+        $or: [
+            {
+                validDate: {
+                    $gte: currentDate,
+                },
+            },
+            { visibility: true },
+        ],
+    }, function (err, surveyCollection) {
+        if (err) {
+            return console.error(err);
+        }
+        res.render("index", {
+            title: "Home",
+            page: "home",
+            surveys: surveyCollection,
+            displayName: Utils_1.GetName(req),
+        });
+    });
 }
 exports.DisplayHomePage = DisplayHomePage;
 function DisplayCreateSurveysPage(req, res, next) {
-    res.render("index", { title: "Create Survey", page: "createsurvey" });
+    res.render("index", {
+        title: "Create Survey",
+        page: "createsurvey",
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplayCreateSurveysPage = DisplayCreateSurveysPage;
 function ProcessCreateSurveysPage(req, res, next) {
@@ -18,7 +49,7 @@ function ProcessCreateSurveysPage(req, res, next) {
         title: req.body.surveytitle,
         validDate: req.body.validity,
         description: req.body.description,
-        creator: "Group-9",
+        creator: req.user.username,
         questions: {
             q1: { questionText: req.body.q1 },
             q2: { questionText: req.body.q2 },
@@ -37,7 +68,11 @@ function ProcessCreateSurveysPage(req, res, next) {
 }
 exports.ProcessCreateSurveysPage = ProcessCreateSurveysPage;
 function DisplayCreateMcqSurveysPage(req, res, next) {
-    res.render("index", { title: "Create Survey", page: "createmcqsurvey" });
+    res.render("index", {
+        title: "Create Survey",
+        page: "createmcqsurvey",
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplayCreateMcqSurveysPage = DisplayCreateMcqSurveysPage;
 function ProcessCreateMcqSurveysPage(req, res, next) {
@@ -45,7 +80,7 @@ function ProcessCreateMcqSurveysPage(req, res, next) {
         title: req.body.surveytitle,
         validDate: req.body.validity,
         description: req.body.description,
-        creator: "Group-9",
+        creator: req.user.username,
         questions: {
             q1: {
                 questionText: req.body.q1,
@@ -158,23 +193,76 @@ function ProcessCreateMcqSurveysPage(req, res, next) {
     res.redirect("/");
 }
 exports.ProcessCreateMcqSurveysPage = ProcessCreateMcqSurveysPage;
-function DisplayAvailableSurveysPage(req, res, next) {
-    res.render("index", { title: "Available Surveys", page: "availablesurveys" });
-}
-exports.DisplayAvailableSurveysPage = DisplayAvailableSurveysPage;
 function DisplayLoginPage(req, res, next) {
-    res.render("index", { title: "Login", page: "login" });
+    res.render("index", {
+        title: "Login",
+        page: "login",
+        messages: req.flash("loginMessage"),
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
 function DisplaySignupPage(req, res, next) {
-    res.render("index", { title: "Sign Up", page: "signup" });
+    res.render("index", {
+        title: "Sign Up",
+        page: "signup",
+        messages: req.flash("registerMessage"),
+        displayName: Utils_1.GetName(req),
+    });
 }
 exports.DisplaySignupPage = DisplaySignupPage;
 function DisplayCreateSurveyTemplatePage(req, res, next) {
     res.render("index", {
         title: "Create Survey",
         page: "createSurveyTemplate",
+        displayName: Utils_1.GetName(req),
     });
 }
 exports.DisplayCreateSurveyTemplatePage = DisplayCreateSurveyTemplatePage;
+function PostRegisterController(req, res, next) {
+    let newUser = new user_1.default({
+        username: req.body.username,
+        email: req.body.emailAddress,
+        displayName: req.body.FirstName + " " + req.body.LastName,
+    });
+    user_1.default.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.error("Error: Inserting New User");
+            if (err.name == "UserExistsError") {
+                console.error("Error: User Already Exists");
+            }
+            req.flash("registerMessage", "Registration Error");
+            return res.redirect("/signup");
+        }
+        return passport_1.default.authenticate("local")(req, res, () => {
+            return res.redirect("/survey-list");
+        });
+    });
+}
+exports.PostRegisterController = PostRegisterController;
+function PostLoginController(req, res, next) {
+    passport_1.default.authenticate("local", (err, user, info) => {
+        if (err) {
+            console.error(err);
+            return next(err);
+        }
+        if (!user) {
+            req.flash("loginMessage", "Authentication Error");
+            return res.redirect("/login");
+        }
+        req.login(user, (err) => {
+            if (err) {
+                console.error(err);
+                return next(err);
+            }
+            return res.redirect("/survey-list");
+        });
+    })(req, res, next);
+}
+exports.PostLoginController = PostLoginController;
+function LogoutController(req, res, next) {
+    req.logout();
+    res.redirect("/login");
+}
+exports.LogoutController = LogoutController;
 //# sourceMappingURL=index.js.map
