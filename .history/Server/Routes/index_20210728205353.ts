@@ -14,7 +14,6 @@
 
 import express from "express";
 const router = express.Router();
-import { AuthGuard } from "../Utils";
 
 // instantiate an object of type index controller
 import {
@@ -39,22 +38,22 @@ router.get("/", DisplayHomePage);
 router.get("/home", DisplayHomePage);
 
 /* Get template selection page. */
-router.get("/createSurveyTemplate", AuthGuard, DisplayCreateSurveyTemplatePage);
+router.get("/createSurveyTemplate", authGuard, DisplayCreateSurveyTemplatePage);
 
 /* GET create survey page. */
-router.get("/createsurveys", AuthGuard, DisplayCreateSurveysPage);
+router.get("/createsurveys", DisplayCreateSurveysPage);
 
 /* Post create survey page. */
-router.post("/createsurveys", AuthGuard, ProcessCreateSurveysPage);
+router.post("/createsurveys", ProcessCreateSurveysPage);
 
 /* GET create MCQs based survey page. */
-router.get("/createmcqsurveys", AuthGuard, DisplayCreateMcqSurveysPage);
+router.get("/createmcqsurveys", DisplayCreateMcqSurveysPage);
 
 /* Post create survey page. */
-router.post("/createmcqsurveys", AuthGuard, ProcessCreateMcqSurveysPage);
+router.post("/createmcqsurveys", ProcessCreateMcqSurveysPage);
 
 /* GET availbale surveys page. */
-router.get("/availablesurveys", AuthGuard, DisplayAvailableSurveysPage);
+router.get("/availablesurveys", DisplayAvailableSurveysPage);
 
 /* GET login page. */
 router.get("/login", DisplayLoginPage);
@@ -69,6 +68,6 @@ router.post("/signup", PostRegisterController);
 router.post("/login", PostLoginController);
 
 /* Get Logout */
-router.get("/logout", AuthGuard, LogoutController);
+router.get("/logout", LogoutController);
 
 export default router;
