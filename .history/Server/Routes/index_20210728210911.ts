@@ -52,6 +52,9 @@ router.get("/createmcqsurveys", AuthGuard, DisplayCreateMcqSurveysPage);
 /* Post create survey page. */
 router.post("/createmcqsurveys", AuthGuard, ProcessCreateMcqSurveysPage);
 
+/* GET availbale surveys page. */
+router.get("/availablesurveys", AuthGuard, DisplayAvailableSurveysPage);
+
 /* GET login page. */
 router.get("/login", DisplayLoginPage);
 

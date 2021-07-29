@@ -26,22 +26,22 @@ export function DisplaySurveyListPage(
   next: NextFunction
 ): void {
   // db.surveycollection.find()
-  // let today = new Date();
-  // let day = String(today.getDate()).padStart(2, "0");
-  // let month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  // let year = today.getFullYear();
+  let today = new Date();
+  let day = String(today.getDate()).padStart(2, "0");
+  let month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let year = today.getFullYear();
 
-  // let currentDate = year + "-" + month + "-" + day;
+  let currentDate = year + "-" + month + "-" + day;
   Survey.find(
     {
-      // $or: [
-      //   {
-      //     validDate: {
-      //       $gte: currentDate,
-      //     },
-      //   },
-      //   { visibility: true },
-      // ],
+      $or: [
+        {
+          validDate: {
+            $gte: currentDate,
+          },
+        },
+        { visibility: true },
+      ],
       creator: req.user.username,
     },
     function (err, surveyCollection) {

@@ -3,16 +3,36 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.DisplayAvailableSurveysPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const user_1 = __importDefault(require("../Models/user"));
 const passport_1 = __importDefault(require("passport"));
 const Utils_1 = require("../Utils");
 function DisplayHomePage(req, res, next) {
-    res.render("index", {
-        title: "Home",
-        page: "home",
-        displayName: Utils_1.GetName(req),
+    let today = new Date();
+    let day = String(today.getDate()).padStart(2, "0");
+    let month = String(today.getMonth() + 1).padStart(2, "0");
+    let year = today.getFullYear();
+    let currentDate = year + "-" + month + "-" + day;
+    Survey_1.default.find({
+        $or: [
+            {
+                validDate: {
+                    $gte: currentDate,
+                },
+            },
+            { visibility: true },
+        ],
+    }, function (err, surveyCollection) {
+        if (err) {
+            return console.error(err);
+        }
+        res.render("index", {
+            title: "Home",
+            page: "home",
+            surveys: surveyCollection,
+            displayName: Utils_1.GetName(req),
+        });
     });
 }
 exports.DisplayHomePage = DisplayHomePage;
@@ -29,7 +49,7 @@ function ProcessCreateSurveysPage(req, res, next) {
         title: req.body.surveytitle,
         validDate: req.body.validity,
         description: req.body.description,
-        creator: "Group-9",
+        creator: req.user.username,
         questions: {
             q1: { questionText: req.body.q1 },
             q2: { questionText: req.body.q2 },
@@ -60,7 +80,7 @@ function ProcessCreateMcqSurveysPage(req, res, next) {
         title: req.body.surveytitle,
         validDate: req.body.validity,
         description: req.body.description,
-        creator: "Group-9",
+        creator: req.user.username,
         questions: {
             q1: {
                 questionText: req.body.q1,
@@ -173,14 +193,6 @@ function ProcessCreateMcqSurveysPage(req, res, next) {
     res.redirect("/");
 }
 exports.ProcessCreateMcqSurveysPage = ProcessCreateMcqSurveysPage;
-function DisplayAvailableSurveysPage(req, res, next) {
-    res.render("index", {
-        title: "Available Surveys",
-        page: "availablesurveys",
-        displayName: Utils_1.GetName(req),
-    });
-}
-exports.DisplayAvailableSurveysPage = DisplayAvailableSurveysPage;
 function DisplayLoginPage(req, res, next) {
     res.render("index", {
         title: "Login",

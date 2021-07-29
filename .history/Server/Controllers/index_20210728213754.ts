@@ -25,35 +25,11 @@ export function DisplayHomePage(
   res: Response,
   next: NextFunction
 ): void {
-  let today = new Date();
-  let day = String(today.getDate()).padStart(2, "0");
-  let month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  let year = today.getFullYear();
-  let currentDate = year + "-" + month + "-" + day;
-  Survey.find(
-    {
-      $or: [
-        {
-          validDate: {
-            $gte: currentDate,
-          },
-        },
-        { visibility: true },
-      ],
-    },
-    function (err, surveyCollection) {
-      if (err) {
-        return console.error(err);
-      }
-
-      res.render("index", {
-        title: "Home",
-        page: "home",
-        surveys: surveyCollection,
-        displayName: GetName(req),
-      });
-    }
-  );
+  res.render("index", {
+    title: "Home",
+    page: "home",
+    displayName: GetName(req),
+  });
 }
 
 // Get Agree/Disagree survey Create page

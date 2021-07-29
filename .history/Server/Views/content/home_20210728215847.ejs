@@ -31,8 +31,6 @@
             </div>
         </div>
     </div>
-    <%for(let count=0;count<surveys.length;count++){%>
-    <h6><%=surveys[count].title%></h6>
-    <%}%>
+    <script>let surveys=<%surveys.clone()%>;</script>
 </body>
 

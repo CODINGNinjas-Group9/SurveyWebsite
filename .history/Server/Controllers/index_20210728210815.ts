@@ -25,35 +25,11 @@ export function DisplayHomePage(
   res: Response,
   next: NextFunction
 ): void {
-  let today = new Date();
-  let day = String(today.getDate()).padStart(2, "0");
-  let month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  let year = today.getFullYear();
-  let currentDate = year + "-" + month + "-" + day;
-  Survey.find(
-    {
-      $or: [
-        {
-          validDate: {
-            $gte: currentDate,
-          },
-        },
-        { visibility: true },
-      ],
-    },
-    function (err, surveyCollection) {
-      if (err) {
-        return console.error(err);
-      }
-
-      res.render("index", {
-        title: "Home",
-        page: "home",
-        surveys: surveyCollection,
-        displayName: GetName(req),
-      });
-    }
-  );
+  res.render("index", {
+    title: "Home",
+    page: "home",
+    displayName: GetName(req),
+  });
 }
 
 // Get Agree/Disagree survey Create page
@@ -79,7 +55,7 @@ export function ProcessCreateSurveysPage(
     title: req.body.surveytitle,
     validDate: req.body.validity,
     description: req.body.description,
-    creator: req.user.username,
+    creator: "Group-9",
     questions: {
       q1: { questionText: req.body.q1 },
       q2: { questionText: req.body.q2 },
@@ -120,7 +96,7 @@ export function ProcessCreateMcqSurveysPage(
     title: req.body.surveytitle,
     validDate: req.body.validity,
     description: req.body.description,
-    creator: req.user.username,
+    creator: "Group-9",
     questions: {
       q1: {
         questionText: req.body.q1,

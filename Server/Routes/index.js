@@ -14,7 +14,6 @@ router.get("/createsurveys", Utils_1.AuthGuard, index_1.DisplayCreateSurveysPage
 router.post("/createsurveys", Utils_1.AuthGuard, index_1.ProcessCreateSurveysPage);
 router.get("/createmcqsurveys", Utils_1.AuthGuard, index_1.DisplayCreateMcqSurveysPage);
 router.post("/createmcqsurveys", Utils_1.AuthGuard, index_1.ProcessCreateMcqSurveysPage);
-router.get("/availablesurveys", Utils_1.AuthGuard, index_1.DisplayAvailableSurveysPage);
 router.get("/login", index_1.DisplayLoginPage);
 router.get("/signup", index_1.DisplaySignupPage);
 router.post("/signup", index_1.PostRegisterController);
