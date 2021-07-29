@@ -13,15 +13,12 @@
 */
 
 /* your custom css goes here */
-.headerText{
-  text-align: center;
-}
-/*h1 {
-  background-color: rgb(69, 143, 94); 
+h1 {
+  background-color: rgb(69, 143, 94);
   padding: 50px;
   margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
-}*/
+}
 
 h2 {
   font-family: Arial, Helvetica, sans-serif;
@@ -32,12 +29,12 @@ h2 {
   padding-bottom: 50px;
   padding-left: 80px;
 }
-/*h3 {
+h3 {
   background-color: rgb(69, 143, 94);
   padding: 50px;
   margin: 20px;
   font-family: Arial, Helvetica, sans-serif;
-} */
+} 
 
 /*toggle button switch custom css start*/
 .switch {
