@@ -39,7 +39,7 @@
         </div> -->
 
   <div class="row">
-    <div class="col-sm-6 mb-5">
+    <div class="col-sm-6">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Create your survey in minutes !!</h5>
@@ -68,26 +68,5 @@
       </div>
     </div>
   </div>
-  <%for(let count=0;count<surveys.length;count++){%>
-  <%if(count%2==0){%>
-  <div class="row mb-5">
-  <%}%>
-  <div class="col-sm-6">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%=surveys[count].title%></h5>
-          <p class="card-text">
-           <%=surveys[count].description%>
-          </p>
-          <a href="/survey-list/<%=surveys[count]._id%>" class="btn btn-success"
-            ><i class="fas fa-clipboard-list"></i> &nbsp; Take Survey</a
-          >
-        </div>
-      </div>
-    </div>
-    <%if(count%2==1){%>
-  </div>
-  <%}%>
-  <%}%>
-</>
+</div>
 <!--</body> -->
