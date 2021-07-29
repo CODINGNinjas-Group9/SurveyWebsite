@@ -1,17 +1,3 @@
-/*  File Descripton : - app.css Custom CSS File
-    Website Name :- Survey Ninjas
-      Team Name :- CodingNinjas
-
-        Anureet Kaur - 301174444
-        Mridula Ramakrishnan - 301145813
-        Muhammad Hassan - 301178235
-        Nilam Keshwala - 301042029
-        Raghuveer Manam - 300715775
-        Roshna Raju - 301174285
-
-        Date: 16th July 2021
-*/
-
 /* your custom css goes here */
 h1{
   background-color:rgb(69, 143, 94);
@@ -44,18 +30,18 @@ h3 {
 
 p {
   font-size: 20px;
-  padding-top: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
   font-family: Arial, Helvetica, sans-serif;
 
 }
 a{
     font-size: 20px;
-    padding-top: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+    padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
  font-family: Arial, Helvetica, sans-serif;
 }
