@@ -200,18 +200,7 @@ export function ShowResultsPage(
   Survey.findById(id, {}, {}, (err, survey) => {
     resultSurvey = survey;
   });
-  SurveyResponse.find({ surveyId: id }, (err, surveyRes) => {
-    if (err) {
-      console.error(err);
-      res.end(err);
-    }
-
-    // show the survey results page
-    res.render("index", {
-      title: "Statistics",
-      page: "results",
-      surveyRes: surveyRes,
-      displayName: GetName(req),
-    });
+  SurveyResponse.find((err, survey) => {
+    resultSurvey = survey;
   });
 }

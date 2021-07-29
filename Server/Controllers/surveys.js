@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessVisibilityChange = exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.ProcessEditPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
+exports.ShowResultsPage = exports.ProcessVisibilityChange = exports.ProcessDeleteSurvey = exports.ProcessSurveyPage = exports.DisplaySurveyPage = exports.ProcessEditPage = exports.DisplayEditPage = exports.DisplaySurveyListPage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const surveyresponse_1 = __importDefault(require("../Models/surveyresponse"));
 const Utils_1 = require("../Utils");
@@ -130,4 +130,24 @@ function ProcessVisibilityChange(req, res, next) {
     });
 }
 exports.ProcessVisibilityChange = ProcessVisibilityChange;
+function ShowResultsPage(req, res, next) {
+    let id = req.params.id;
+    let resultSurvey = null;
+    Survey_1.default.findById(id, {}, {}, (err, survey) => {
+        resultSurvey = survey;
+    });
+    surveyresponse_1.default.find({ surveyId: id }, (err, surveyRes) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.render("index", {
+            title: "Statistics",
+            page: "results",
+            surveyRes: surveyRes,
+            displayName: Utils_1.GetName(req),
+        });
+    });
+}
+exports.ShowResultsPage = ShowResultsPage;
 //# sourceMappingURL=surveys.js.map
