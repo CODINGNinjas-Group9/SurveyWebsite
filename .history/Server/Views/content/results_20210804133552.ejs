@@ -1,6 +1,5 @@
-
 <!--
-<h2><%=resSet[0].title%></h2>
+<h2><%=title%></h2>
 <h3 class="headerText"><%=resSet[0].title%></h3>
 <%for(let i=0;i<resSet.length;i++){%>
 <h5><%=resSet[i].question%></h5>
@@ -9,10 +8,13 @@
 <%}%>
 <%}%>
 -->
+<!DOCTYPE html>
+<html lang="en-US">
+<body>
 
-<h2><%=resSet[0].title%></h2>
+<h2><%=title%></h2>
 <%for(let i=0;i<resSet.length;i++){%>
-<div id="resChart<%=i%>"></div>
+<div id="responseChart"+i></div>
 <%}%>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
@@ -22,25 +24,30 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 // Draw the chart and set the chart values
-
 function drawChart() {
-    let data;
-let options;
-let chart;
+    let data=null;
+    let options;
+    let chart;
+    for(int i=0;i<resSet.length;i++){
+        <%let i =%> i;
   data = google.visualization.arrayToDataTable([
-  ['Task', 'Hours per Day'],
-  ['<%=resSet[0].res[0].resText%>', <%=resSet[0].res[0].total%>],
-  ['<%=resSet[0].res[1].resText%>', <%=resSet[0].res[1].total%>],
-  ['<%=resSet[0].res[2].resText%>', <%=resSet[0].res[2].total%>],
-  ['<%=resSet[0].res[3].resText%>', <%=resSet[0].res[3].total%>],
-  ['<%=resSet[0].res[4].resText%>', <%=resSet[0].res[4].total%>]
+  ['Question', 'Response'],
+  [<%=resSet[i].res[0].resText, resSet[i].res[0].total%>],
+  [<%=resSet[i].res[1].resText, resSet[i].res[1].total%>],
+  [<%=resSet[i].res[2].resText, resSet[i].res[2].total%>],
+  [<%=resSet[i].res[3].resText, resSet[i].res[3].total%>],
+  [<%=resSet[i].res[4].resText, resSet[i].res[4].total%>],
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  options = {'title':"<%=resSet[0].question%>", 'width':550, 'height':400};
+  options = {'title':<%=resSet[i].question%>, 'width':550, 'height':400};
 
   // Display the chart inside the <div> element with id="piechart"
-  chart = new google.visualization.PieChart(document.getElementById("resChart<%=0%>"));
+  chart = new google.visualization.PieChart(document.getElementById('responseChart'+i));
   chart.draw(data, options);
 }
+}
 </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!-- 
+   File Descripton :-  index.ejs File 
+    Website Name :- Survey Ninjas
+      Team Name :- CodingNinjas
+
+        Anureet Kaur - 301174444
+        Mridula Ramakrishnan - 301145813
+        Muhammad Hassan - 301178235
+        Nilam Keshwala - 301042029
+        Raghuveer Manam - 300715775
+        Roshna Raju - 301174285
+
+        Date: 16th July 2021
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/Assets/images/tablogo.png">
+
+  <title>
+    <%= title %>
+  </title>
+
+  <!-- CSS Section -->
+  <link rel=" stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/Content/app.css">
+</head>
+
+<body>
+  <!-- Navigation Section -->
+  <header>
+    <%- include('components/header.ejs'); %>
+  </header>
+
+  <!-- Main Content Section -->
+  <main>
+    <div class="container mb-5">
+      <%- include('content/' + page + '.ejs' ); %>
+    </div>
+  </main>
+
+  <!-- Bottom Nav -->
+  <footer>
+    <%- include('components/footer.ejs'); %>
+  </footer>
+
+  <!-- JavaScript Section -->
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/Scripts/app.js"></script>
+</body>
+
+</html>

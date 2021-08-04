@@ -22,12 +22,8 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 // Draw the chart and set the chart values
-
 function drawChart() {
-    let data;
-let options;
-let chart;
-  data = google.visualization.arrayToDataTable([
+  var data = google.visualization.arrayToDataTable([
   ['Task', 'Hours per Day'],
   ['<%=resSet[0].res[0].resText%>', <%=resSet[0].res[0].total%>],
   ['<%=resSet[0].res[1].resText%>', <%=resSet[0].res[1].total%>],
@@ -37,10 +33,10 @@ let chart;
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  options = {'title':"<%=resSet[0].question%>", 'width':550, 'height':400};
+  var options = {'title':"<%=resSet[0].question%>", 'width':550, 'height':400};
 
   // Display the chart inside the <div> element with id="piechart"
-  chart = new google.visualization.PieChart(document.getElementById("resChart<%=0%>"));
+  var chart = new google.visualization.PieChart(document.getElementById("resChart<%0%>"));
   chart.draw(data, options);
 }
 </script>

@@ -10,10 +10,10 @@
 <%}%>
 -->
 
-<h2><%=resSet[0].title%></h2>
-<%for(let i=0;i<resSet.length;i++){%>
-<div id="resChart<%=i%>"></div>
-<%}%>
+<h1>My Web Page</h1>
+
+<div id="piechart"></div>
+
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
@@ -22,25 +22,21 @@ google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
 // Draw the chart and set the chart values
-
 function drawChart() {
-    let data;
-let options;
-let chart;
-  data = google.visualization.arrayToDataTable([
+  var data = google.visualization.arrayToDataTable([
   ['Task', 'Hours per Day'],
-  ['<%=resSet[0].res[0].resText%>', <%=resSet[0].res[0].total%>],
-  ['<%=resSet[0].res[1].resText%>', <%=resSet[0].res[1].total%>],
-  ['<%=resSet[0].res[2].resText%>', <%=resSet[0].res[2].total%>],
-  ['<%=resSet[0].res[3].resText%>', <%=resSet[0].res[3].total%>],
-  ['<%=resSet[0].res[4].resText%>', <%=resSet[0].res[4].total%>]
+  ['Work', <%=resSet[0].res[0].total%>],
+  ['Eat', <%=resSet[0].res[1].total%>],
+  ['TV', <%=resSet[0].res[2].total%>],
+  ['Gym', <%=resSet[0].res[3].total%>],
+  ['Sleep', <%=resSet[0].res[4].total%>]
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  options = {'title':"<%=resSet[0].question%>", 'width':550, 'height':400};
+  var options = {'title':"<%=resSet[0].title%>", 'width':550, 'height':400};
 
   // Display the chart inside the <div> element with id="piechart"
-  chart = new google.visualization.PieChart(document.getElementById("resChart<%=0%>"));
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
   chart.draw(data, options);
 }
 </script>
