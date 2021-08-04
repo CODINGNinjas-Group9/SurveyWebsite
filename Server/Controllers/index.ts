@@ -344,3 +344,25 @@ export function LogoutController(
 
   res.redirect("/login");
 }
+
+// Get MCQs survey Create page template
+export function DisplayContactPage(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  res.render("index", {
+    title: "Contact Us",
+    page: "contact",
+    displayName: GetName(req),
+  });
+}
+
+// Post Contact us
+export function PostContactController(
+  req: Request,
+  res: Response,
+  next: NextFunction
+): void {
+  res.redirect("/");
+}

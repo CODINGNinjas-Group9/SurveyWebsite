@@ -16,40 +16,51 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #879b97;">
   <div class="container-fluid">
     <a class="navbar-brand" href="/"><img src="/Assets/images/teamlogo.png" width="50" height="50" /></a>
-    <span class="initialism"><strong> <%=displayName%></strong></span>
-     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <span class="initialism"><strong>
+        <%=displayName%>
+      </strong></span>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
 
         <li class="nav-item">
-          <a class="nav-link" href="/home"><i class="fas fa-home fa-lg"></i><strong> Home</strong>  </a>
+          <a class="nav-link" href="/home"><i class="fas fa-home fa-lg"></i><strong> Home</strong> </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/createSurveyTemplate"><i class="fas fa-plus-square"></i><strong> Create Surveys</strong>  </a>
+          <a class="nav-link" href="/createSurveyTemplate"><i class="fas fa-plus-square"></i><strong> Create
+              Surveys</strong> </a>
         </li>
         <% if(displayName) { %>
-        <li class="nav-item">
-          <a class="nav-link" href="/survey-list"><i class="fas fa-clipboard-list"></i><strong> Manage Contents </strong> </a>
-        </li>
-        <% } %>
-        <% if(displayName) { %>
-          
           <li class="nav-item">
-            <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i><strong> Logout</strong></a>
-          </li>
-         
-          <% } else { %>
-          <li class="nav-item">
-            <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i><strong> Login</strong></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i><strong> Sign Up</strong></a>
+            <a class="nav-link" href="/survey-list"><i class="fas fa-clipboard-list"></i><strong> Manage Contents
+              </strong> </a>
           </li>
           <% } %>
-      </ul></div>
+            <% if(displayName) { %>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i><strong> Logout</strong></a>
+              </li>
+
+              <% } else { %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt"></i><strong> Login</strong></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup"><i class="fas fa-user-plus"></i><strong> Sign Up</strong></a>
+                </li>
+                <% } %>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/contact"><i class="fas fa-phone-square-alt"></i><strong> Contact
+                        Us</strong>
+                    </a>
+                  </li>
+      </ul>
     </div>
+  </div>
   </div>
 </nav>

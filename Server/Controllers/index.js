@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+exports.PostContactController = exports.DisplayContactPage = exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const user_1 = __importDefault(require("../Models/user"));
 const passport_1 = __importDefault(require("passport"));
@@ -265,4 +265,16 @@ function LogoutController(req, res, next) {
     res.redirect("/login");
 }
 exports.LogoutController = LogoutController;
+function DisplayContactPage(req, res, next) {
+    res.render("index", {
+        title: "Contact Us",
+        page: "contact",
+        displayName: Utils_1.GetName(req),
+    });
+}
+exports.DisplayContactPage = DisplayContactPage;
+function PostContactController(req, res, next) {
+    res.redirect("/");
+}
+exports.PostContactController = PostContactController;
 //# sourceMappingURL=index.js.map

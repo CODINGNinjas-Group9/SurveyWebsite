@@ -29,6 +29,8 @@ import {
   PostRegisterController,
   PostLoginController,
   LogoutController,
+  DisplayContactPage,
+  PostContactController,
 } from "../Controllers/index";
 
 /* GET home page. */
@@ -67,4 +69,8 @@ router.post("/login", PostLoginController);
 /* Get Logout */
 router.get("/logout", AuthGuard, LogoutController);
 
+/* GET contact page. */
+router.get("/contact", DisplayContactPage);
+/* POST contact Us page. */
+router.post("/contact", PostContactController);
 export default router;

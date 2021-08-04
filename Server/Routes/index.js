@@ -19,5 +19,7 @@ router.get("/signup", index_1.DisplaySignupPage);
 router.post("/signup", index_1.PostRegisterController);
 router.post("/login", index_1.PostLoginController);
 router.get("/logout", Utils_1.AuthGuard, index_1.LogoutController);
+router.get("/contact", index_1.DisplayContactPage);
+router.post("/contact", index_1.PostContactController);
 exports.default = router;
 //# sourceMappingURL=index.js.map
