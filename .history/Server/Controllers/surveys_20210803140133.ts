@@ -190,55 +190,28 @@ export function ProcessVisibilityChange(
 }
 
 //Get: Process visibility change of a survey
-export async function ShowResultsPage(
+export function ShowResultsPage(
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> {
+): void {
   let id = req.params.id;
   let resultSurvey = null;
-  const myResponses = [];
-  const resSet = [];
-  resultSurvey = await Survey.findById(id);
-
-  for (let count = 0; count < 5; count++) {
-    myResponses[count] = await SurveyResponse.aggregate([
-      { $match: { surveyId: id } },
-      { $group: { _id: "$q" + (count + 1) + "ResNo", total: { $sum: 1 } } },
-      { $sort: { _id: 1 } },
-      { $project: { surveyId: 1, _id: 0, r: "$_id", total: 1 } },
-    ]);
-  }
-  for (let count = 0; count < 5; count++) {
-    let responseArray = [];
-    for (let i = 0; i < 5; i++) {
-      if (myResponses[count][i])
-        responseArray[i] = {
-          resText:
-            resultSurvey.questions["q" + (count + 1)].resOptions[
-              "opt" + (i + 1)
-            ].optText,
-          total: myResponses[count][i].total,
-        };
-      else
-        responseArray[i] = {
-          resText:
-            resultSurvey.questions["q" + (count + 1)].resOptions[
-              "opt" + (i + 1)
-            ].optText,
-          total: 0,
-        };
+  Survey.findById(id, {}, {}, (err, survey) => {
+    resultSurvey = survey;
+  });
+  SurveyResponse.aggregate([{ $match: { surveyId: id } }, { $group: { '$q1ResNo': { $sum:1}}}]){
+    if (err) {
+      console.error(err);
+      res.end(err);
     }
-    resSet[count] = {
-      title: resultSurvey.title,
-      question: resultSurvey.questions["q" + (count + 1)].questionText,
-      res: responseArray,
-    };
-  }
-  res.render("index", {
-    title: "Statistics",
-    page: "results",
-    resSet: resSet,
-    displayName: GetName(req),
+
+    // show the survey results page
+    res.render("index", {
+      title: "Statistics",
+      page: "results",
+      surveyRes: surveyRes,
+      displayName: GetName(req),
+    });
   });
 }

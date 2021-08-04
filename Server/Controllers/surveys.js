@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -131,20 +140,44 @@ function ProcessVisibilityChange(req, res, next) {
 }
 exports.ProcessVisibilityChange = ProcessVisibilityChange;
 function ShowResultsPage(req, res, next) {
-    let id = req.params.id;
-    let resultSurvey = null;
-    Survey_1.default.findById(id, {}, {}, (err, survey) => {
-        resultSurvey = survey;
-    });
-    surveyresponse_1.default.find({ surveyId: id }, (err, surveyRes) => {
-        if (err) {
-            console.error(err);
-            res.end(err);
+    return __awaiter(this, void 0, void 0, function* () {
+        let id = req.params.id;
+        let resultSurvey = null;
+        const myResponses = [];
+        const resSet = [];
+        resultSurvey = yield Survey_1.default.findById(id);
+        for (let count = 0; count < 5; count++) {
+            myResponses[count] = yield surveyresponse_1.default.aggregate([
+                { $match: { surveyId: id } },
+                { $group: { _id: "$q" + (count + 1) + "ResNo", total: { $sum: 1 } } },
+                { $sort: { _id: 1 } },
+                { $project: { surveyId: 1, _id: 0, r: "$_id", total: 1 } },
+            ]);
+        }
+        for (let count = 0; count < 5; count++) {
+            let responseArray = [];
+            for (let i = 0; i < 5; i++) {
+                if (myResponses[count][i])
+                    responseArray[i] = {
+                        resText: resultSurvey.questions["q" + (count + 1)].resOptions["opt" + (i + 1)].optText,
+                        total: myResponses[count][i].total,
+                    };
+                else
+                    responseArray[i] = {
+                        resText: resultSurvey.questions["q" + (count + 1)].resOptions["opt" + (i + 1)].optText,
+                        total: 0,
+                    };
+            }
+            resSet[count] = {
+                title: resultSurvey.title,
+                question: resultSurvey.questions["q" + (count + 1)].questionText,
+                res: responseArray,
+            };
         }
         res.render("index", {
             title: "Statistics",
             page: "results",
-            surveyRes: surveyRes,
+            resSet: resSet,
             displayName: Utils_1.GetName(req),
         });
     });

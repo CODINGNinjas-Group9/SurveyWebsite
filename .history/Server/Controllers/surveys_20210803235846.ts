@@ -212,7 +212,7 @@ export async function ShowResultsPage(
   for (let count = 0; count < 5; count++) {
     let responseArray = [];
     for (let i = 0; i < 5; i++) {
-      if (myResponses[count][i])
+      if (myResponses[count][i] == i)
         responseArray[i] = {
           resText:
             resultSurvey.questions["q" + (count + 1)].resOptions[
@@ -226,19 +226,16 @@ export async function ShowResultsPage(
             resultSurvey.questions["q" + (count + 1)].resOptions[
               "opt" + (i + 1)
             ].optText,
-          total: 0,
+          total: myResponses[count][i].total,
         };
     }
     resSet[count] = {
       title: resultSurvey.title,
       question: resultSurvey.questions["q" + (count + 1)].questionText,
-      res: responseArray,
+      res,
     };
   }
-  res.render("index", {
-    title: "Statistics",
-    page: "results",
-    resSet: resSet,
-    displayName: GetName(req),
-  });
+  console.log(myResponses);
+
+  return res.redirect("/survey-list/");
 }

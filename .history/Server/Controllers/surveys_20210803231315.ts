@@ -197,8 +197,7 @@ export async function ShowResultsPage(
 ): Promise<void> {
   let id = req.params.id;
   let resultSurvey = null;
-  const myResponses = [];
-  const resSet = [];
+  let myResponses = [];
   resultSurvey = await Survey.findById(id);
 
   for (let count = 0; count < 5; count++) {
@@ -209,36 +208,7 @@ export async function ShowResultsPage(
       { $project: { surveyId: 1, _id: 0, r: "$_id", total: 1 } },
     ]);
   }
-  for (let count = 0; count < 5; count++) {
-    let responseArray = [];
-    for (let i = 0; i < 5; i++) {
-      if (myResponses[count][i])
-        responseArray[i] = {
-          resText:
-            resultSurvey.questions["q" + (count + 1)].resOptions[
-              "opt" + (i + 1)
-            ].optText,
-          total: myResponses[count][i].total,
-        };
-      else
-        responseArray[i] = {
-          resText:
-            resultSurvey.questions["q" + (count + 1)].resOptions[
-              "opt" + (i + 1)
-            ].optText,
-          total: 0,
-        };
-    }
-    resSet[count] = {
-      title: resultSurvey.title,
-      question: resultSurvey.questions["q" + (count + 1)].questionText,
-      res: responseArray,
-    };
-  }
-  res.render("index", {
-    title: "Statistics",
-    page: "results",
-    resSet: resSet,
-    displayName: GetName(req),
-  });
+  console.log(resultSurvey.title);
+
+  return res.redirect("/survey-list/");
 }

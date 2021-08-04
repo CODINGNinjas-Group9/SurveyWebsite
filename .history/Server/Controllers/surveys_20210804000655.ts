@@ -212,7 +212,7 @@ export async function ShowResultsPage(
   for (let count = 0; count < 5; count++) {
     let responseArray = [];
     for (let i = 0; i < 5; i++) {
-      if (myResponses[count][i])
+      if (myResponses[count][i] == i)
         responseArray[i] = {
           resText:
             resultSurvey.questions["q" + (count + 1)].resOptions[
