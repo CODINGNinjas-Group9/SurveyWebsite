@@ -8,6 +8,7 @@ const Survey_1 = __importDefault(require("../Models/Survey"));
 const user_1 = __importDefault(require("../Models/user"));
 const passport_1 = __importDefault(require("passport"));
 const Utils_1 = require("../Utils");
+const Contacts_1 = __importDefault(require("../Models/Contacts"));
 function DisplayHomePage(req, res, next) {
     let today = new Date();
     let day = String(today.getDate()).padStart(2, "0");
@@ -274,7 +275,20 @@ function DisplayContactPage(req, res, next) {
 }
 exports.DisplayContactPage = DisplayContactPage;
 function PostContactController(req, res, next) {
-    res.redirect("/");
+    let newContact = new Contacts_1.default({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        contactNumber: req.body.contactNumber,
+        emailAddress: req.body.emailAddress,
+        inputMessage: req.body.inputMessage,
+    });
+    Contacts_1.default.create(newContact, (err) => {
+        if (err) {
+            console.error(err);
+            res.end(err);
+        }
+        res.redirect("/");
+    });
 }
 exports.PostContactController = PostContactController;
 //# sourceMappingURL=index.js.map
