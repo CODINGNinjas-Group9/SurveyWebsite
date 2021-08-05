@@ -1,0 +1,186 @@
+/*  File Descripton : - app.css Custom CSS File
+    Website Name :- Survey Ninjas
+      Team Name :- CodingNinjas
+
+        Anureet Kaur - 301174444
+        Mridula Ramakrishnan - 301145813
+        Muhammad Hassan - 301178235
+        Nilam Keshwala - 301042029
+        Raghuveer Manam - 300715775
+        Roshna Raju - 301174285
+
+        Date: 16th July 2021
+*/
+
+/* your custom css goes here */
+.headerText{
+  text-align: center;
+}
+/*h1 {
+  background-color: rgb(69, 143, 94); 
+  padding: 50px;
+  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}*/
+
+h2 {
+  font-family: Arial, Helvetica, sans-serif;
+<<<<<<< HEAD
+  background-color:rgb(69, 143, 94);
+  
+  padding-top: 20px;
+  padding-right: 20px;;
+  padding-bottom: 20px;
+  padding-left: 20px;
+ 
+  
+  
+=======
+  background-color: rgb(69, 143, 94);
+
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+>>>>>>> 40cae3faaf30ba1794d87488dfcd5e41d3203f5e
+}
+/*h3 {
+  background-color: rgb(69, 143, 94);
+  padding: 50px;
+  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+/*toggle button switch custom css start*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*toggle button switch custom css end*/
+
+/*Login pages custom css start*/
+.input-group-addon:first-child {
+  border-right: 0;
+}
+
+.input-group-addon {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  border: 1px solid darkgrey;
+  border-radius: 4px;
+}
+
+.input-group-addon .fa {
+  font-size: 18px;
+}
+
+<<<<<<< HEAD
+p {
+  font-size: 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+a{
+    font-size: 20px;
+    padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+ font-family: Arial, Helvetica, sans-serif;
+}
+=======
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  float: left;
+  margin-bottom: 0;
+}
+
+.input-group .form-control:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.login {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: lightgrey;
+  border-radius: 0.3rem;
+}
+
+.login input {
+  background-color: white;
+  border-color: darkgrey;
+  border-radius: 0.4em;
+  width: 100%;
+}
+
+.edit-task {
+  position: relative;
+  top: -31px;
+  display: none;
+}
+/*Login pages custom css end*/
+>>>>>>> 40cae3faaf30ba1794d87488dfcd5e41d3203f5e
