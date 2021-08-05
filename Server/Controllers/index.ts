@@ -17,6 +17,7 @@ import Survey from "../Models/Survey";
 import User from "../Models/user";
 import passport from "passport";
 import { GetName } from "../Utils";
+import Contacts from "../Models/Contacts";
 
 // Get Home page
 
@@ -364,5 +365,21 @@ export function PostContactController(
   res: Response,
   next: NextFunction
 ): void {
-  res.redirect("/");
+  // instantiate a new contacts
+  let newContact = new Contacts({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    contactNumber: req.body.contactNumber,
+    emailAddress: req.body.emailAddress,
+    inputMessage: req.body.inputMessage,
+  });
+
+  // db.contacts.insert({contacts data is here...})
+  Contacts.create(newContact, (err) => {
+    if (err) {
+      console.error(err);
+      res.end(err);
+    }
+    res.redirect("/");
+  });
 }

@@ -1,0 +1,58 @@
+<!-- 
+   File Description :-  contact.ejs File 
+    Website Name :- Survey Ninjas
+      Team Name :- CodingNinjas
+
+        Anureet Kaur - 301174444
+        Mridula Ramakrishnan - 301145813
+        Muhammad Hassan - 301178235
+        Nilam Keshwala - 301042029
+        Raghuveer Manam - 300715775
+        Roshna Raju - 301174285
+
+        Date: 03th August 2021
+-->
+<body style="background-color: #abebc6">
+<div class="row">
+   <h1 class="headerText"><strong>Please provide your details in-order to contact you</h1>
+   </br>
+   </br>
+   </br>
+   <form method="POST" id="contactForm" novalidate>
+
+      <div class="form-group">
+         <div class="row">
+            <div class="col-md-6">
+               <input class="form-control" type="text" name="FirstName" id="firstName" placeholder="First Name"
+                  required>
+            </div>
+            <div class="col-md-6">
+               <input class="form-control" type="text" name="LastName" id="lastName" placeholder="Last Name" required>
+            </div>
+         </div>
+         </br>
+         <div class="row">
+            <div class="col-md-6">
+               <input type="email" class="form-control" id="emailAddress" name="EmailAddress" required value=""
+                  placeholder="Email Address">
+            </div>
+            <div class="col-md-6">
+               <input type="text" class="form-control" id="contactNumber" name="ContactNumber" required value=""
+                  placeholder="Contact Number">
+            </div>
+         </div>
+         </br>
+         <div class="row">
+            <div class="column">
+               <textarea type="text" class="form-control" id="inputMessage" rows="2"
+                  placeholder="Type your message here"></textarea>
+            </div>
+         </div>
+      </div>
+
+      <div class="text-end mt-2">
+         <button id="submitButton" type="submit" class="btn btn-primary"
+            style="background-color:#1E8449">Submit</button>
+      </div>
+   </form>
+</div>
