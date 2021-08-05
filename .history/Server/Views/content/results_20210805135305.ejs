@@ -11,15 +11,12 @@
 -->
 
 <h2><%=resSet[0].title%></h2>
-<button class="btn btn-primary btn-small" onclick="print()">Print</button>
 <%for(let i=0;i<resSet.length;i++){%>
 <div id="resChart<%=i%>"></div>
 <%}%>
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
-
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
 
@@ -41,11 +38,9 @@ data[<%=i%>] = new google.visualization.arrayToDataTable([
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  options[<%=i%>] = {'title':"<%=(i+1)%>. <%=resSet[i].question%>", 'height':400};
+  options[<%=i%>] = {'title':"<%=i. resSet[i].question%>", 'height':400};
   chart[<%=i%>] = new google.visualization.PieChart(document.getElementById("resChart<%=i%>"));
   chart[<%=i%>].draw(data[<%=i%>], options[<%=i%>]);
 }
 <%}%>
-
-
 </script>

@@ -11,15 +11,13 @@
 -->
 
 <h2><%=resSet[0].title%></h2>
-<button class="btn btn-primary btn-small" onclick="print()">Print</button>
 <%for(let i=0;i<resSet.length;i++){%>
 <div id="resChart<%=i%>"></div>
 <%}%>
-
+<button class="btn btn-primary btn-small" onclick="print">Print</button>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
-
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
 
