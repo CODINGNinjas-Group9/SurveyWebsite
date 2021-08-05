@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PostContactController = exports.DisplayContactPage = exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
+exports.DisplayMessage = exports.PostContactController = exports.DisplayContactPage = exports.LogoutController = exports.PostLoginController = exports.PostRegisterController = exports.DisplayCreateSurveyTemplatePage = exports.DisplaySignupPage = exports.DisplayLoginPage = exports.ProcessCreateMcqSurveysPage = exports.DisplayCreateMcqSurveysPage = exports.ProcessCreateSurveysPage = exports.DisplayCreateSurveysPage = exports.DisplayHomePage = void 0;
 const Survey_1 = __importDefault(require("../Models/Survey"));
 const user_1 = __importDefault(require("../Models/user"));
 const passport_1 = __importDefault(require("passport"));
@@ -65,7 +65,7 @@ function ProcessCreateSurveysPage(req, res, next) {
             return res.end(err);
         }
     });
-    res.redirect("/");
+    res.redirect("/messages");
 }
 exports.ProcessCreateSurveysPage = ProcessCreateSurveysPage;
 function DisplayCreateMcqSurveysPage(req, res, next) {
@@ -191,7 +191,7 @@ function ProcessCreateMcqSurveysPage(req, res, next) {
             return res.end(err);
         }
     });
-    res.redirect("/");
+    res.redirect("/messages");
 }
 exports.ProcessCreateMcqSurveysPage = ProcessCreateMcqSurveysPage;
 function DisplayLoginPage(req, res, next) {
@@ -287,8 +287,16 @@ function PostContactController(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.redirect("/");
+        res.redirect("/messages");
     });
 }
 exports.PostContactController = PostContactController;
+function DisplayMessage(req, res, next) {
+    res.render("index", {
+        title: "Success",
+        page: "messages",
+        displayName: "",
+    });
+}
+exports.DisplayMessage = DisplayMessage;
 //# sourceMappingURL=index.js.map

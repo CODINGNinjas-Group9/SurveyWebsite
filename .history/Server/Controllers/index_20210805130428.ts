@@ -95,7 +95,7 @@ export function ProcessCreateSurveysPage(
       return res.end(err);
     }
   });
-  res.redirect("/messages");
+  res.redirect("/");
 }
 
 // Get MCQs survey Create page template
@@ -231,7 +231,7 @@ export function ProcessCreateMcqSurveysPage(
       return res.end(err);
     }
   });
-  res.redirect("/messages");
+  res.redirect("/");
 }
 
 // Get Login page
@@ -390,6 +390,9 @@ export function DisplayMessage(
   res: Response,
   next: NextFunction
 ): void {
+  let m = req.body.mtype;
+  let message = "";
+  if (m == 1) message = "";
   res.render("index", {
     title: "Success",
     page: "messages",

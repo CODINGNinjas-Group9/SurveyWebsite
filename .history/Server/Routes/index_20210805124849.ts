@@ -31,7 +31,6 @@ import {
   LogoutController,
   DisplayContactPage,
   PostContactController,
-  DisplayMessage,
 } from "../Controllers/index";
 
 /* GET home page. */

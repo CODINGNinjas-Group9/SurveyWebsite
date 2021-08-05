@@ -76,6 +76,6 @@ router.get("/contact", DisplayContactPage);
 router.post("/contact", PostContactController);
 
 /* Get friendly messages page */
-router.get("/messages", DisplayMessage);
+router.get("/messages/:mtype", DisplayMessage);
 
 export default router;

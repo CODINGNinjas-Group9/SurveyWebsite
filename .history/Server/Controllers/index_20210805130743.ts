@@ -95,7 +95,7 @@ export function ProcessCreateSurveysPage(
       return res.end(err);
     }
   });
-  res.redirect("/messages");
+  res.redirect("/");
 }
 
 // Get MCQs survey Create page template
@@ -231,7 +231,7 @@ export function ProcessCreateMcqSurveysPage(
       return res.end(err);
     }
   });
-  res.redirect("/messages");
+  res.redirect("/");
 }
 
 // Get Login page
@@ -380,7 +380,7 @@ export function PostContactController(
       console.error(err);
       res.end(err);
     }
-    res.redirect("/messages");
+    res.redirect("/messages" + req.params.mtype);
   });
 }
 
@@ -390,9 +390,13 @@ export function DisplayMessage(
   res: Response,
   next: NextFunction
 ): void {
+  let m = req.params.mtype;
+  let message = "You will be redirected..";
+  if (m == 1) message = "Thank you for contacting us!";
   res.render("index", {
     title: "Success",
     page: "messages",
+    message: message,
     displayName: "",
   });
 }

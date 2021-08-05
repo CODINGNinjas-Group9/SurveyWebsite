@@ -104,7 +104,7 @@ function ProcessSurveyPage(req, res, next) {
             return res.end(err);
         }
     });
-    res.redirect("/");
+    res.redirect("/messages");
 }
 exports.ProcessSurveyPage = ProcessSurveyPage;
 function ProcessDeleteSurvey(req, res, next) {

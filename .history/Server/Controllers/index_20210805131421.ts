@@ -95,7 +95,7 @@ export function ProcessCreateSurveysPage(
       return res.end(err);
     }
   });
-  res.redirect("/messages");
+  res.redirect("/");
 }
 
 // Get MCQs survey Create page template
@@ -231,7 +231,7 @@ export function ProcessCreateMcqSurveysPage(
       return res.end(err);
     }
   });
-  res.redirect("/messages");
+  res.redirect("/");
 }
 
 // Get Login page

@@ -31,7 +31,6 @@ import {
   LogoutController,
   DisplayContactPage,
   PostContactController,
-  DisplayMessage,
 } from "../Controllers/index";
 
 /* GET home page. */
@@ -76,6 +75,6 @@ router.get("/contact", DisplayContactPage);
 router.post("/contact", PostContactController);
 
 /* Get friendly messages page */
-router.get("/messages", DisplayMessage);
+router.get("/messages", MessageController);
 
 export default router;
