@@ -19,28 +19,26 @@
 <script type="text/javascript">
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
 
 // Draw the chart and set the chart values
 let chart=[5];
 let data=[5];
-let options=[5];
 <%for(let i=0;i<5;i++){%>
-
-google.charts.setOnLoadCallback(drawChart<%=i%>);
-function drawChart<%=i%>() {
+function drawChart() {
 data[<%=i%>] = new google.visualization.arrayToDataTable([
   ['response', 'total'],
-  ['<%=resSet[i].res[0].resText%>', <%=resSet[i].res[0].total%>],
-  ['<%=resSet[i].res[1].resText%>', <%=resSet[i].res[1].total%>],
-  ['<%=resSet[i].res[2].resText%>', <%=resSet[i].res[2].total%>],
-  ['<%=resSet[i].res[3].resText%>', <%=resSet[i].res[3].total%>],
-  ['<%=resSet[i].res[4].resText%>', <%=resSet[i].res[4].total%>]
+  ['<%=resSet[0].res[0].resText%>', <%=resSet[0].res[0].total%>],
+  ['<%=resSet[0].res[1].resText%>', <%=resSet[0].res[1].total%>],
+  ['<%=resSet[0].res[2].resText%>', <%=resSet[0].res[2].total%>],
+  ['<%=resSet[0].res[3].resText%>', <%=resSet[0].res[3].total%>],
+  ['<%=resSet[0].res[4].resText%>', <%=resSet[0].res[4].total%>]
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  options[<%=i%>] = {'title':"<%=resSet[i].question%>", 'width':550, 'height':400};
+  let options = {'title':"<%=resSet[0].question%>", 'width':550, 'height':400};
   chart[<%=i%>] = new google.visualization.PieChart(document.getElementById("resChart<%=i%>"));
-  chart[<%=i%>].draw(data[<%=i%>], options[<%=i%>]);
+  chart[<%=i%>].draw(data[<%=i%>], options);
 }
 <%}%>
 </script>

@@ -26,8 +26,8 @@ let data=[5];
 let options=[5];
 <%for(let i=0;i<5;i++){%>
 
-google.charts.setOnLoadCallback(drawChart<%=i%>);
-function drawChart<%=i%>() {
+google.charts.setOnLoadCallback(drawChart<%i%>);
+function drawChart<%i%>() {
 data[<%=i%>] = new google.visualization.arrayToDataTable([
   ['response', 'total'],
   ['<%=resSet[i].res[0].resText%>', <%=resSet[i].res[0].total%>],

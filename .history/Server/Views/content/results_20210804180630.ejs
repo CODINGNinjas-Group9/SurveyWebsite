@@ -1,0 +1,46 @@
+
+<!--
+<h2><%=resSet[0].title%></h2>
+<h3 class="headerText"><%=resSet[0].title%></h3>
+<%for(let i=0;i<resSet.length;i++){%>
+<h5><%=resSet[i].question%></h5>
+<%for(let j=0;j<resSet[i].res.length;j++){%>
+<h6><%=resSet[i].res[j].resText%> <%=resSet[i].res[j].total%></h6>
+<%}%>
+<%}%>
+-->
+
+<h2><%=resSet[0].title%></h2>
+<%for(let i=0;i<resSet.length;i++){%>
+<div id="resChart<%=i%>"></div>
+<%}%>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+
+function drawChart() {
+    let data;
+let options;
+let chart;
+const resSett=[];
+resSett= <%=[...resSet];%>;
+  data = google.visualization.arrayToDataTable([
+  ['response', 'total'],
+  ['<%=resSet[1].res[0].resText%>', resSett[0].res[0].total],
+  ['<%=resSet[0].res[1].resText%>', <%=resSet[0].res[1].total%>],
+  ['<%=resSet[0].res[2].resText%>', <%=resSet[0].res[2].total%>],
+  ['<%=resSet[0].res[3].resText%>', <%=resSet[0].res[3].total%>],
+  ['<%=resSet[0].res[4].resText%>', <%=resSet[0].res[4].total%>]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  options = {'title':"<%=resSet[0].question%>", 'width':550, 'height':400};
+  chart = new google.visualization.PieChart(document.getElementById("resChart<%=0%>"));
+  chart.draw(data, options);
+}
+</script>

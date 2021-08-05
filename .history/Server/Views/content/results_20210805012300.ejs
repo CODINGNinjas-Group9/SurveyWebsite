@@ -18,7 +18,7 @@
 
 <script type="text/javascript">
 // Load google charts
-google.charts.load('current', {'packages':['corechart']});
+
 
 // Draw the chart and set the chart values
 let chart=[5];
@@ -26,8 +26,8 @@ let data=[5];
 let options=[5];
 <%for(let i=0;i<5;i++){%>
 
-google.charts.setOnLoadCallback(drawChart<%=i%>);
-function drawChart<%=i%>() {
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
 data[<%=i%>] = new google.visualization.arrayToDataTable([
   ['response', 'total'],
   ['<%=resSet[i].res[0].resText%>', <%=resSet[i].res[0].total%>],
@@ -38,7 +38,7 @@ data[<%=i%>] = new google.visualization.arrayToDataTable([
 ]);
 
   // Optional; add a title and set the width and height of the chart
-  options[<%=i%>] = {'title':"<%=resSet[i].question%>", 'width':550, 'height':400};
+  options[<%=i%>] = {'title':"<%=resSet[0].question%>", 'width':550, 'height':400};
   chart[<%=i%>] = new google.visualization.PieChart(document.getElementById("resChart<%=i%>"));
   chart[<%=i%>].draw(data[<%=i%>], options[<%=i%>]);
 }

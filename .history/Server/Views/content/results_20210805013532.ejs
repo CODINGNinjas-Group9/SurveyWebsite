@@ -30,7 +30,7 @@ google.charts.setOnLoadCallback(drawChart<%=i%>);
 function drawChart<%=i%>() {
 data[<%=i%>] = new google.visualization.arrayToDataTable([
   ['response', 'total'],
-  ['<%=resSet[i].res[0].resText%>', <%=resSet[i].res[0].total%>],
+  ['<%=resSet[<%=i>].res[0].resText%>', <%=resSet[i].res[0].total%>],
   ['<%=resSet[i].res[1].resText%>', <%=resSet[i].res[1].total%>],
   ['<%=resSet[i].res[2].resText%>', <%=resSet[i].res[2].total%>],
   ['<%=resSet[i].res[3].resText%>', <%=resSet[i].res[3].total%>],
