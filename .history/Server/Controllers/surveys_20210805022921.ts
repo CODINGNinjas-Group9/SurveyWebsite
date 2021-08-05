@@ -212,11 +212,11 @@ export async function ShowResultsPage(
   for (let count = 0; count < 5; count++) {
     let responseArray = [];
     for (let i = 0; i < myResponses[count].length; i++) {
-      console.log(myResponses);
+      console.log(myResponses[count].length);
       responseArray[i] = {
         resText:
           resultSurvey.questions["q" + (count + 1)].resOptions[
-            "opt" + myResponses[count][i].r
+            "opt" + myResponses[count].r
           ].optText,
         total: myResponses[count][i].total,
       };

@@ -156,17 +156,12 @@ function ShowResultsPage(req, res, next) {
         }
         for (let count = 0; count < 5; count++) {
             let responseArray = [];
-            for (let i = 0; i < 5; i++) {
-                if (myResponses[count][i])
-                    responseArray[i] = {
-                        resText: resultSurvey.questions["q" + (count + 1)].resOptions["opt" + (i + 1)].optText,
-                        total: myResponses[count][i].total,
-                    };
-                else
-                    responseArray[i] = {
-                        resText: resultSurvey.questions["q" + (count + 1)].resOptions["opt" + (i + 1)].optText,
-                        total: 0,
-                    };
+            for (let i = 0; i < myResponses[count].length; i++) {
+                console.log(myResponses);
+                responseArray[i] = {
+                    resText: resultSurvey.questions["q" + (count + 1)].resOptions["opt" + myResponses[count][i].r].optText,
+                    total: myResponses[count][i].total,
+                };
             }
             resSet[count] = {
                 title: resultSurvey.title,

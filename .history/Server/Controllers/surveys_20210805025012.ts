@@ -206,13 +206,12 @@ export async function ShowResultsPage(
       { $match: { surveyId: id } },
       { $group: { _id: "$q" + (count + 1) + "ResNo", total: { $sum: 1 } } },
       { $sort: { _id: 1 } },
-      { $project: { surveyId: 1, _id: 0, r: "$_id", total: 1 } },
     ]);
   }
   for (let count = 0; count < 5; count++) {
     let responseArray = [];
     for (let i = 0; i < myResponses[count].length; i++) {
-      console.log(myResponses);
+      console.log(myResponses[count + 1]);
       responseArray[i] = {
         resText:
           resultSurvey.questions["q" + (count + 1)].resOptions[
