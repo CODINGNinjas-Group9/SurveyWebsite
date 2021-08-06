@@ -25,9 +25,9 @@ for(let i=0;i<resSet[0].res.length;i++){
 %>
 <div class="row">
 <h5 class="headerText" style="text-align:center;">These statistics are based on <%=responseCount%> results</h5>
-<div class="col-md-10"></div>
-<div class="col-md-2">
-<button class="btn btn-success pull-right" style="text-align:right;"   onclick="print()">Print Results</button> </div>
+
+<div class="float-md-right">
+<button class="btn btn-success pull-right"  onclick="print()" type="button">Print Results</button> </div>
 </div>
 <!--divs for charts-->
 <%for(let i=0;i<resSet.length;i++){%>
@@ -41,3 +41,5 @@ for(let i=0;i<resSet[0].res.length;i++){
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>const chartData=<%-JSON.stringify(resSet)%>;</script>
 <script src="/Scripts/charts.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>

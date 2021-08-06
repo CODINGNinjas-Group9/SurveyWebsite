@@ -1,0 +1,98 @@
+<!-- 
+   File Descripton :-  home.ejs File 
+    Website Name :- Survey Ninjas
+      Team Name :- CodingNinjas
+
+        Anureet Kaur - 301174444
+        Mridula Ramakrishnan - 301145813
+        Muhammad Hassan - 301178235
+        Nilam Keshwala - 301042029
+        Raghuveer Manam - 300715775
+        Roshna Raju - 301174285
+
+        Date: 16th July 2021
+
+
+
+<body style="background-color:#ABEBC6"> -->
+
+<div class="container-fluid text-center">
+  <br />
+  <!-- <h3><strong><em>
+           Surveys that show surveys never lie!!</em>
+
+         </strong></h3>-->
+  <div class="row">
+    <h1 class="headerText">Surveys that show surveys never lie!!</h1>
+  </div>
+  <hr />
+  <br />
+  <!--<div class="row">
+            <div class="col-lg-6">
+                <p><em>Create your survey in minutes!!</em></p>
+                <a class="nav-link" href="/createSurveyTemplate"><i class="fas fa-plus-square"></i><strong>Create Surveys</strong></a>
+            </div>
+            <div class="col-lg-6">
+                <p><em>Complete your survey in seconds!!</em></p>
+                <a class="nav-link" href="/survey-list"><i class="fas fa-clipboard-list"></i><strong>Available Surveys</strong></a>
+            </div>
+        </div> -->
+
+  <div class="row">
+    <div class="col-sm-12 mb-5">
+      <div class="card border-success">
+        <div class="card-body">
+          <h5 class="card-title">Create your survey in minutes !!</h5>
+          <p class="card-text">
+            What you ask matters. <br />
+            How you ask is everything.
+          </p>
+          <a href="/createSurveyTemplate" class="btn btn-success"
+            ><i class="fas fa-plus-square"></i> &nbsp;Create Surveys</a
+          >
+        </div>
+      </div>
+    </div>
+  <!--  <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Take your survey in seconds !!</h5>
+          <p class="card-text">
+            Your Opinion <br />
+            Your Future
+          </p>
+          <a href="/survey-list" class="btn btn-success"
+            ><i class="fas fa-clipboard-list"></i> &nbsp; Available Surveys</a
+          >
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="row">
+    <h1 class="headerText">Take your survey in seconds !!</h1>
+  </div>
+  <hr/>
+  <br>
+  <%for(let count=0;count<surveys.length;count++){%>
+  <%if(count%2==0){%>
+  <div class="row mb-5">
+  <%}%>
+  <div class="col-sm-6">
+      <div class="card border-success">
+        <div class="card-body">
+          <h5 class="card-title"><%=surveys[count].title%></h5>
+          <p class="card-text">
+           <%=surveys[count].description%>
+          </p>
+          <a href="/survey-list/<%=surveys[count]._id%>" class="btn btn-success"
+            ><i class="fas fa-clipboard-list"></i> &nbsp; Take Survey</a
+          >
+        </div>
+      </div>
+    </div>
+    <%if(count%2==1){%>
+  </div>
+  <%}%>
+  <%}%>
+</>
+<!--</body> -->
