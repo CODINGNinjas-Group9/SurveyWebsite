@@ -1,0 +1,18 @@
+
+
+<h1><%=resSet[0].title%></h1>
+<%if(resSet[0].res[0]!=null){%>
+<button class="btn btn-primary btn-small" onclick="print()">Print</button>
+
+<!--divs for charts-->
+<%for(let i=0;i<resSet.length;i++){%>
+<div id="resChart<%=i%>"></div>
+<%}%>
+<%}else{%>
+<h4>No results to show</h4>
+<%}%>
+
+<!--Scripts to display charts-->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>const chartData=<%-JSON.stringify(resSet)%>;</script>
+<script src="/Scripts/charts.js"></script>
