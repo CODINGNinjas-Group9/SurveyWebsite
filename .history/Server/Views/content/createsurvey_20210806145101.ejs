@@ -11,96 +11,81 @@
         Roshna Raju - 301174285
 
         Date: 16th July 2021
--->
 
 
-    <div class="container bg-3 text-center">
+
+    <div class="container-fluid bg-3 text-center"> -->
+     <div class="container">
+     <div class="row">
+     <div class="offset md-3 col-md-6">
         <br>
         <h1 class="headerText">Create Your Survey in minutes... </h1>
         <hr>
         <form class="form" method="post">
-            <div class="row ">
-                <div class="form-group col-sm-2">
+            
+                <div class="col-sm-2">
                     <label for="surveytitle" class="form-label">Survey Name</label>
-                </div>
-                <div class="form-group col-sm-4">
+               
                     <input type="text" class="form-control" id="surveytitle" aria-describedby="surveytitle"
                         name="surveytitle">
                 </div>
-                <div class="form-group col-sm-3">
+                <div class="col-sm-2">
                     <label for="validity" class="form-label">Survey Validity Date</label>
                 </div>
-                <div class="form-group col-sm-3">
+                <div class="col-sm-2">
                     <input type="date" class="form-control" id="validity" aria-describedby="validity" name="validity">
                 </div>
             </div>
-            <br>
             <div class="row ">
-                <div class=" form-group col-sm-2">
+                <div class="col-sm-2">
                     <label for="description" class="form-label">Description </label>
                 </div>
-                <div class=" form-group col-sm-9">
+                <div class="col-sm-7">
                     <input type="text" class="form-control" id="description" aria-describedby="description"
                         name="description">
                 </div>
             </div>
-            <br>
-            
+            </br>
+            <div class="container">
                 <div class="row">
-                 <div class="col-sm-2">
-                    <label for="q1" class="form-label">Question 1. </label>
-                </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your first question" id="q1"
                             aria-describedby="q1" aria-label="q1" name="q1" required>
                     </div>
                 </div>
-                <br>
                 <div class="row">
-                <div class="col-sm-2">
-                    <label for="q2" class="form-label">Question 2. </label>
-                </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your second question" id="q2"
                             aria-describedby="q2" aria-label="q2" name="q2" required>
                     </div>
                 </div>
-                <br>
                 <div class="row">
-                <div class="col-sm-2">
-                    <label for="q3" class="form-label">Question 3. </label>
-                </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your third question" id="q3"
                             aria-describedby="q3" aria-label="q3" name="q3" required>
                     </div>
                 </div>
-                <br>
                 <div class="row">
-                  <div class="col-sm-2">
-                    <label for="q4" class="form-label">Question 4. </label>
-                </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your fourth question" id="q4"
                             aria-describedby="q4" aria-label="q4" name="q4" required>
                     </div>
                 </div>
-                <br>
                 <div class="row">
-                  <div class="col-sm-2">
-                    <label for="q5" class="form-label">Question 5. </label>
-                </div>
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your fifth question" id="q5"
                             aria-describedby="q5" aria-label="q5" name="q5" required>
                     </div>
                 </div>
-            
-            <br>
-                
+            </div>
+            </br>
+            <div class="container">
+                <div class="row">
                     <div class="col-sm-2">
-                        <button type="submit" class="btn btn-success" >Build Survey</button>
-                    
+                        <button type="submit" class="btn btn-primary" style="background-color:#1E8449">Build
+                            Survey</button>
+                    </div>
                 </div>
+            </div>
         </form>
     </div>
