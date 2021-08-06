@@ -1,0 +1,52 @@
+
+<!--
+<h2><%=resSet[0].title%></h2>
+<h3 class="headerText"><%=resSet[0].title%></h3>
+<%for(let i=0;i<resSet.length;i++){%>
+<h5><%=resSet[i].question%></h5>
+<%for(let j=0;j<resSet[i].res.length;j++){%>
+<h6><%=resSet[i].res[j].resText%> <%=resSet[i].res[j].total%></h6>
+<%}%>
+<%}%>
+-->
+
+<h2><%=resSet[0].title%></h2>
+<button class="btn btn-primary btn-small" onclick="print()">Print</button>
+<%for(let i=0;i<resSet.length;i++){%>
+<div id="resChart<%=i%>"></div>
+<%}%>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+<%let ii=0;%>
+// Draw the chart and set the chart values
+let chart=[5];
+let data=[5];
+let options=[5];
+myResData=[<%=[...resSet]%>];
+for(let i=0;i<5;i++){
+<%ii=ii+1;%>
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+data[i] = new google.visualization.arrayToDataTable([
+  ['response', 'total'],
+  [myResData[i].res[0]!=null?myResData[i].res[0].resText:"", myResData[i].res[0]!=null?myResData[i].res[0].total:0],
+  [myResData[i].res[1]!=null?myResData[i].res[1].resText:"", myResData[i].res[1]!=null?myResData[i].res[1].total:0],
+  [myResData[i].res[2]!=null?myResData[i].res[2].resText:"", myResData[i].res[2]!=null?myResData[i].res[2].total:0],
+  [myResData[i].res[3]!=null?myResData[i].res[3].resText:"", myResData[i].res[3]!=null?myResData[i].res[3].total:0],
+  [myResData[i].res[4]!=null?myResData[i].res[4].resText:"", myResData[i].res[4]!=null?myResData[i].res[4].total:0]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  options[i] = {'title':myResData[i].question, 'height':400};
+  chart[i] = new google.visualization.PieChart(document.getElementById("resChart"+i));
+  chart[i].draw(data[i], options[i]);
+}
+}
+
+
+</script>

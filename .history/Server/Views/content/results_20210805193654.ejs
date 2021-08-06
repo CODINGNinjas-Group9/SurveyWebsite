@@ -1,0 +1,49 @@
+
+<!--
+<h2><%=resSet[0].title%></h2>
+<h3 class="headerText"><%=resSet[0].title%></h3>
+<%for(let i=0;i<resSet.length;i++){%>
+<h5><%=resSet[i].question%></h5>
+<%for(let j=0;j<resSet[i].res.length;j++){%>
+<h6><%=resSet[i].res[j].resText%> <%=resSet[i].res[j].total%></h6>
+<%}%>
+<%}%>
+-->
+
+<h2><%=resSet[0].title%></h2>
+<button class="btn btn-primary btn-small" onclick="print()">Print</button>
+<%for(let i=0;i<resSet.length;i++){%>
+<div id="resChart<%=i%>"></div>
+<%}%>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script>const mydata=<%-JSON.stringify(resSet)%>;</script>
+<script type="text/javascript">
+
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+console.log(mydata);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          [mydata[i].question, mydata[i].res[0].total],
+          [mydata[i].question, mydata[i].res[1].total],
+          [mydata[i].question, mydata[i].res[2].total],
+          [mydata[i].question, mydata[i].res[3].total],
+          [mydata[i].question, mydata[i].res[4].total]
+        ]);
+
+        var options = {
+          title: 'My Daily Activities'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('resChart0'));
+
+        chart.draw(data, options);
+      }
+
+
+
+</script>

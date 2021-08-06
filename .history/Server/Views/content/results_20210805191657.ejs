@@ -1,0 +1,52 @@
+
+<!--
+<h2><%=resSet[0].title%></h2>
+<h3 class="headerText"><%=resSet[0].title%></h3>
+<%for(let i=0;i<resSet.length;i++){%>
+<h5><%=resSet[i].question%></h5>
+<%for(let j=0;j<resSet[i].res.length;j++){%>
+<h6><%=resSet[i].res[j].resText%> <%=resSet[i].res[j].total%></h6>
+<%}%>
+<%}%>
+-->
+
+<h2><%=resSet[0].title%></h2>
+<button class="btn btn-primary btn-small" onclick="print()">Print</button>
+<%for(let i=0;i<resSet.length;i++){%>
+<div id="resChart<%=i%>"></div>
+<%}%>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+
+// Draw the chart and set the chart values
+let chart;
+let data;
+let options;
+myResData=[...<%=[...resSet]%>];
+
+
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+data = new google.visualization.arrayToDataTable([
+  ['response', 'total'],
+  ['sdf', 2],
+  ['sdffd', 3],
+  ['dfsfsd', 1],
+  ['sdads', 7],
+  ['dfgsdas', 3]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  options = {'title':"sasasda", 'height':400};
+  chart= new google.visualization.PieChart(document.getElementById("resChart1"));
+  chart.draw(data, options);
+}
+
+
+
+</script>

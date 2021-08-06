@@ -1,14 +1,21 @@
 
+<!--
+<h2><%=resSet[0].title%></h2>
+<h3 class="headerText"><%=resSet[0].title%></h3>
+<%for(let i=0;i<resSet.length;i++){%>
+<h5><%=resSet[i].question%></h5>
+<%for(let j=0;j<resSet[i].res.length;j++){%>
+<h6><%=resSet[i].res[j].resText%> <%=resSet[i].res[j].total%></h6>
+<%}%>
+<%}%>
+-->
 
 <h2><%=resSet[0].title%></h2>
 <button class="btn btn-primary btn-small" onclick="print()">Print</button>
-
-<!--divs for charts-->
 <%for(let i=0;i<resSet.length;i++){%>
 <div id="resChart<%=i%>"></div>
 <%}%>
 
-<!--Scripts to display charts-->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>const chartData=<%-JSON.stringify(resSet)%>;</script>
 <script src="/Scripts/charts.js"></script>
