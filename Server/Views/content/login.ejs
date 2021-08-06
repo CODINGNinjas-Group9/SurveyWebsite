@@ -18,7 +18,8 @@
 <div class="row">
   <div class="offset-md-3 col-md-6 col-sm-12">
     <div class="login" id="contentArea" style="background-color:#ABEBC6">
-      <h1 class="headerText"><strong>Login</h1>
+      <h1 class="headerText"><strong>Login</strong></h1>
+        <hr>
       <!-- message area -->
       <% if(messages.length> 0) { %>
         <div id="messageArea" class="alert alert-danger">
@@ -27,26 +28,29 @@
         <% } %>
           <form id="loginForm" novalidate method="POST">
             <div class="form-group">
-              <div class="input-group">
+              <label for="username" class="form-label">Enter UserName</label>
+              <div class="input-group">               
                 <span class="input-group-addon">
                   <i class="fa fa-user">
                   </i>
                 </span>
                 <input type="text" class="form-control" id="username" name="username" required value=""
-                  placeholder="Enter username">
+                  placeholder="Username">
               </div>
             </div>
 <br>
             <div class="form-group">
+                <label for="password" class="form-label">Enter Your Password</label>
               <div class="input-group">
                 <span class="input-group-addon">
                   <i class="fa fa-lock">
                   </i>
                 </span>
-                <input type="password" class="form-control" id="password" name="password" required value=""
-                  placeholder="Enter your password">
-              </div>
 
+                <input type="password" class="form-control" id="password" name="password" required value=""
+                  placeholder="Password">
+              </div>
+            </br>
             </div>
             <div class="text-end mt-2">
               <button id="loginButton" type="submit" class="btn btn-success"><i
