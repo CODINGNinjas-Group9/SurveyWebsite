@@ -295,7 +295,7 @@ function DisplayMessage(req, res, next) {
     res.render("index", {
         title: "Success",
         page: "messages",
-        displayName: "",
+        displayName: Utils_1.GetName(req),
     });
 }
 exports.DisplayMessage = DisplayMessage;
