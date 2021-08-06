@@ -13,48 +13,56 @@
         Date: 03th August 2021
 -->
 
-
+<div class= "container">
    <div class="row">
-      <h1 class="headerText"><strong>Please provide your details in-order to contact you</h1>
-      </br>
-      </br>
-      </br>
-      <form method="POST" id="contactForm" return.validatiobn()>
+      <div class="offset md-3 col-md-6"></div>
+         <br>
+         <h1 class="headerText"><strong>Please provide your details in-order to contact you</strong></h1>
+         <hr>
+         </br>
+         <form method="POST" id="contactForm" return.validatiobn()>
 
-         <div class="form-group">
-            <div class="row">
-               <div class="col-md-6">
-                  <input class="form-control" type="text" name="firstName" id="firstName" placeholder="First Name"
-                     required>
+            <div class="form-group mb-3">
+               <div class="row">
+                  <div class="col-md-6">
+                        <label for="firstname" class="form-label">First Name</label>
+                     <input class="form-control" type="text" name="firstName" id="firstName" placeholder="Enter your First Name here"
+                        required>
+                  </div>
+                  <div class="col-md-6">
+                        <label for="lastname" class="form-label">Last Name</label>
+                     <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Enter your Last Name here"
+                        required>
+                  </div>
                </div>
-               <div class="col-md-6">
-                  <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Last Name"
-                     required>
+               </br>
+               <div class="row">
+                  <div class="col-md-6">
+                        <label for="emailaddress" class="form-label">Email Address</label>
+                     <input type="email" class="form-control" id="emailAddress" name="emailAddress" required value=""
+                        placeholder=" Enter your Email Address here" required>
+                  </div>
+                  <div class="col-md-6">
+                        <label for="contactNumber" class="form-label">Contact Number</label>
+                     <input type="text" class="form-control" id="contactNumber" name="contactNumber" required value=""
+                        placeholder="Enter your Contact Number here" required>
+                  </div>
+               </div>
+               </br>
+               <div class="row">
+                  <div class="col-md-12">
+                        <label for="inputMessage" class="form-label">Your Message</label>
+                     <textarea type="text" class="form-control" id="inputMessage" name="inputMessage" rows="4"
+                        placeholder="Type your message here" required></textarea>
+                  </div>
                </div>
             </div>
-            </br>
-            <div class="row">
-               <div class="col-md-6">
-                  <input type="email" class="form-control" id="emailAddress" name="emailAddress" required value=""
-                     placeholder="Email Address" required>
-               </div>
-               <div class="col-md-6">
-                  <input type="text" class="form-control" id="contactNumber" name="contactNumber" required value=""
-                     placeholder="Contact Number" required>
-               </div>
-            </div>
-            </br>
-            <div class="row">
-               <div class="column">
-                  <textarea type="text" class="form-control" id="inputMessage" name="inputMessage" rows="2"
-                     placeholder="Type your message here" required></textarea>
-               </div>
-            </div>
-         </div>
 
-         <div class="text-end mt-2">
-            <button id="submitButton" type="submit" class="btn btn-primary"
-               style="background-color:#1E8449" a href ="/messages">Submit</button>
-         </div>
-      </form>
+            <div class="text-end mt-1">
+               <button id="submitButton" type="submit" class="btn btn-primary"
+                  style="background-color:#1E8449" a href ="/messages">Submit</button>
+            </div>
+         </form>
+      </div>
    </div>
+</div>
