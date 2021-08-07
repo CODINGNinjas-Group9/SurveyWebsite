@@ -30,7 +30,7 @@ for (let i = 0; i < chartData.length; i++) {
             ],
         ]);
         options[i] = {
-            title: chartData[i].question,
+            title: i + 1 + ". " + chartData[i].question,
         };
         chart[i] = new google.visualization.PieChart(document.getElementById("resChart" + i));
         chart[i].draw(data[i], options[i]);
