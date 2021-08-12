@@ -12,11 +12,13 @@
 
         Date: 16th July 2021
 -->
-
+<br>
   <div class="row justify-content-lg-center g-3">
-    <h1>
+    
+    <h1 class="headerText">
       <%= survey.title %>
     </h1>
+    <hr>
     <label>
       <%= survey.description %>
     </label>
@@ -37,35 +39,35 @@
       </label>
       <br>
       <fieldset id="group1">
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group1" id="inlineRadio1" required
             value=<%=survey.questions.q1.resOptions.opt1.optNo %>>
           <label class="form-check-label" for="inlineRadio1">
             <%= survey.questions.q1.resOptions.opt1.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group1" id="inlineRadio2"
             value=<%=survey.questions.q1.resOptions.opt2.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q1.resOptions.opt2.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group1" id="inlineRadio2"
             value=<%=survey.questions.q1.resOptions.opt3.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q1.resOptions.opt3.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group1" id="inlineRadio2"
             value=<%=survey.questions.q1.resOptions.opt4.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q1.resOptions.opt4.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group1" id="inlineRadio2"
             value=<%=survey.questions.q1.resOptions.opt5.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
@@ -73,42 +75,42 @@
           </label>
         </div>
       </fieldset>
-      <br><br>
+      <br>
 
       <label for="NameTextField">
         <%= survey.questions.q2.questionNo %>. &nbsp; <%= survey.questions.q2.questionText %>
       </label>
       <br>
       <fieldset id="group2">
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group2" id="inlineRadio1" required
             value=<%=survey.questions.q2.resOptions.opt1.optNo %>>
           <label class="form-check-label" for="inlineRadio1">
             <%= survey.questions.q2.resOptions.opt1.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group2" id="inlineRadio2"
             value=<%=survey.questions.q2.resOptions.opt2.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q2.resOptions.opt2.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group2" id="inlineRadio2"
             value=<%=survey.questions.q2.resOptions.opt3.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q2.resOptions.opt3.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group2" id="inlineRadio2"
             value=<%=survey.questions.q2.resOptions.opt4.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q2.resOptions.opt4.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group2" id="inlineRadio2"
             value=<%=survey.questions.q2.resOptions.opt5.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
@@ -116,42 +118,42 @@
           </label>
         </div>
       </fieldset>
-      <br><br>
+      <br>
 
       <label for="NameTextField">
         <%= survey.questions.q3.questionNo %>. &nbsp; <%= survey.questions.q3.questionText %>
       </label>
       <br>
       <fieldset id="group3">
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group3" id="inlineRadio1" required
             value=<%=survey.questions.q3.resOptions.opt1.optNo %>>
           <label class="form-check-label" for="inlineRadio1">
             <%= survey.questions.q3.resOptions.opt1.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group3" id="inlineRadio2"
             value=<%=survey.questions.q3.resOptions.opt2.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q3.resOptions.opt2.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group3" id="inlineRadio2"
             value=<%=survey.questions.q3.resOptions.opt3.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q3.resOptions.opt3.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group3" id="inlineRadio2"
             value=<%=survey.questions.q3.resOptions.opt4.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q3.resOptions.opt4.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group3" id="inlineRadio2"
             value=<%=survey.questions.q3.resOptions.opt5.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
@@ -159,42 +161,42 @@
           </label>
         </div>
       </fieldset>
-      <br><br>
+      <br>
 
       <label for="NameTextField">
         <%= survey.questions.q4.questionNo %>. &nbsp; <%= survey.questions.q4.questionText %>
       </label>
       <br>
       <fieldset id="group4">
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group4" id="inlineRadio1" required
             value=<%=survey.questions.q4.resOptions.opt1.optNo %>>
           <label class="form-check-label" for="inlineRadio1">
             <%= survey.questions.q4.resOptions.opt1.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group4" id="inlineRadio2"
             value=<%=survey.questions.q4.resOptions.opt2.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q4.resOptions.opt2.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group4" id="inlineRadio2"
             value=<%=survey.questions.q4.resOptions.opt3.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q4.resOptions.opt3.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group4" id="inlineRadio2"
             value=<%=survey.questions.q4.resOptions.opt4.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q4.resOptions.opt4.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group4" id="inlineRadio2"
             value=<%=survey.questions.q4.resOptions.opt5.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
@@ -202,42 +204,42 @@
           </label>
         </div>
       </fieldset>
-      <br><br>
+      <br>
 
       <label for="NameTextField">
         <%= survey.questions.q5.questionNo %>. &nbsp; <%= survey.questions.q5.questionText %>
       </label>
       <br>
       <fieldset id="group5">
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group5" id="inlineRadio1" required
             value=<%=survey.questions.q5.resOptions.opt1.optNo %>>
           <label class="form-check-label" for="inlineRadio1">
             <%= survey.questions.q5.resOptions.opt1.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group5" id="inlineRadio2"
             value=<%=survey.questions.q5.resOptions.opt2.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q5.resOptions.opt2.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group5" id="inlineRadio2"
             value=<%=survey.questions.q5.resOptions.opt3.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q5.resOptions.opt3.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group5" id="inlineRadio2"
             value=<%=survey.questions.q5.resOptions.opt4.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
             <%= survey.questions.q5.resOptions.opt4.optText %>
           </label>
         </div>
-        <div class="form-check form-check-inline">
+        <div class="form-check">
           <input class="form-check-input" type="radio" name="group5" id="inlineRadio2"
             value=<%=survey.questions.q5.resOptions.opt5.optNo %>>
           <label class="form-check-label" for="inlineRadio2">
@@ -245,12 +247,11 @@
           </label>
         </div>
       </fieldset>
-      <br><br>
-
+      <br>
       <!--Submit Button-->
       <button type="submit" class="btn btn-primary" style="background-color:#1E8449"><i
           class="fa fa-check-square-o"></i> Submit</button>
-
+          &nbsp;
       <a href="/" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
     </form>
 
