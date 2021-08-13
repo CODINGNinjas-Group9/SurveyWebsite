@@ -13,10 +13,11 @@
         Date: 16th July 2021
 -->
 
-
+<br>
     <div class="container-fluid bg-3 text-center">
-        <h1>Create Your Survey in minutes... </h1>
-        <form method="post">
+        <h1 class="headerText">Create Your Survey in minutes... </h1>
+        <hr>
+        <form class="form" method="post">
             <div class="row ">
                 <div class="col-sm-2">
                     <label for="surveytitle" class="form-label">Survey Name</label>
@@ -33,6 +34,7 @@
                         value="<%=survey.validDate%>">
                 </div>
             </div>
+            <br>
             <div class="row ">
                 <div class="col-sm-2">
                     <label for="description" class="form-label">Description </label>
@@ -42,8 +44,8 @@
                         name="description" value="<%=survey.description%>">
                 </div>
             </div>
-            </br>
-            <div class="container">
+            <br>
+            
                 <div class="row">
                     <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your first question" id="q1"
@@ -51,6 +53,7 @@
                             value="<%=survey.questions.q1.questionText%>">
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your second question" id="q2"
@@ -58,6 +61,7 @@
                             value="<%=survey.questions.q2.questionText%>">
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your third question" id="q3"
@@ -65,6 +69,7 @@
                             value="<%=survey.questions.q3.questionText%>">
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your fourth question" id="q4"
@@ -72,6 +77,7 @@
                             value="<%=survey.questions.q4.questionText%>">
                     </div>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-sm-10">
                         <input type="text" class="form-control" placeholder="Enter your fifth question" id="q5"
@@ -79,15 +85,12 @@
                             value="<%=survey.questions.q5.questionText%>">
                     </div>
                 </div>
+            
+            <br>
             </div>
-            </br>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
                         <button type="submit" class="btn btn-primary" style="background-color:#1E8449">Update
                             Survey</button>
-                    </div>
-                </div>
+                  
             </div>
         </form>
     </div>
