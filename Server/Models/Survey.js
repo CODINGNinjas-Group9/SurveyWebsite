@@ -8,6 +8,7 @@ const Schema = mongoose_1.default.Schema;
 const SurveySchema = new Schema({
     title: String,
     creator: String,
+    startDate: String,
     validDate: String,
     description: String,
     visibility: { type: Boolean, default: false },

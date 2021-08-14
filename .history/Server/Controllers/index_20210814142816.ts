@@ -35,14 +35,9 @@ export function DisplayHomePage(
     {
       $or: [
         {
-          $and: [
-            {
-              validDate: {
-                $gte: currentDate,
-              },
-            },
-            { startDate: { $lte: currentDate } },
-          ],
+          validDate: {
+            $gte: currentDate,
+          },
         },
         { visibility: true },
       ],

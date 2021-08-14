@@ -18,9 +18,14 @@ function DisplayHomePage(req, res, next) {
     Survey_1.default.find({
         $or: [
             {
-                validDate: {
-                    $gte: currentDate,
-                },
+                $and: [
+                    {
+                        validDate: {
+                            $gte: currentDate,
+                        },
+                    },
+                    { startDate: { $lte: currentDate } },
+                ],
             },
             { visibility: true },
         ],
@@ -49,6 +54,7 @@ function ProcessCreateSurveysPage(req, res, next) {
     let newSurvey = new Survey_1.default({
         title: req.body.surveytitle,
         validDate: req.body.validity,
+        startDate: req.body.start,
         description: req.body.description,
         creator: req.user.username,
         questions: {
@@ -80,6 +86,7 @@ function ProcessCreateMcqSurveysPage(req, res, next) {
     let newSurvey = new Survey_1.default({
         title: req.body.surveytitle,
         validDate: req.body.validity,
+        startDate: req.body.start,
         description: req.body.description,
         creator: req.user.username,
         questions: {

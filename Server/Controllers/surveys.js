@@ -55,6 +55,7 @@ function ProcessEditPage(req, res, next) {
         id = updatedSurvey._id;
         updatedSurvey.title = req.body.surveytitle;
         updatedSurvey.validDate = req.body.validity;
+        updatedSurvey.startDate = req.body.start;
         updatedSurvey.description = req.body.description;
         updatedSurvey.questions.q1.questionText = req.body.q1;
         updatedSurvey.questions.q2.questionText = req.body.q2;
